@@ -22,6 +22,9 @@ header{
     flex-direction: column;
     align-items: center;
 }
+nav{
+    grid-area: nav;
+}
 main{
     grid-area: main;
     width: 100%;
@@ -34,27 +37,39 @@ footer{
     color: #8A1538;
 }
 header img{
-    height: 80%;
+    height: 90%;
     width: 100%;
 }
 #email{
+    padding: 1rem;
+}
+#email label{
     padding: 0.5rem;
+    font-size: 1.5rem;
 }
 #email input{
-    width: auto;
+    width: 70%;
     border: 2px solid 	#8A1538;
+    padding-top: 0.2rem;
 }
 #password{
+    padding: 1rem;
+}
+#password label{
     padding: 0.5rem;
+    font-size: 1.5rem;
 }
 #password input{
-    width: auto;
+    width: 70%;
     border: 2px solid 	#8A1538;
-
+    padding-top: 0.2rem;
+}
+#buttom{
+    padding: 1rem;
 }
 
 #buttom input{
-    padding: 0.3rem 2rem;
+    padding: 0.4rem 2rem;
     color: white;
     background-color: 	#8A1538;
     border: 1px solid white;
@@ -68,15 +83,31 @@ form{
     padding: 2rem;
 }
 
+form div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+form div label{
+    align-items: center;
+}
+
 @media screen and (min-width: 600px) {
     .container{
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr auto;
         grid-template-areas:
-        "header main main"
-        "main main main"
-        "footer footer footer";
+        "header nav"
+        "main main"
+        "footer footer";
     }
 
+    #email input{
+        width: 90%;
+    }
+    #password input{
+        width: 90%;
+    }
 
 }
