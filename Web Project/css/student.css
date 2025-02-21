@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Maroon: #8A1538;
+}
+
+.container{
+    display: grid;
+    height: 100vh;
+    background-color: lightgray;
+    grid-template-columns: auto 2fr auto;
+    grid-template-rows: 0.5fr 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+}
+main{
+    grid-area: main;
+}
+footer{
+    grid-area: footer;
+    width: 100%;
+    padding-bottom: 2rem;
+    color: var(--Maroon);
+    font-size: 1.5rem;
+}
+header img{
+    height: auto;
+    width: 30%;
+}
+.name{
+    background-color: gray;
+    border: 3px solid var(--Maroon);
+    padding-bottom: 2rem;
+    margin: 5%;
+}
+.dotGreen {
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    border-radius: 100%;
+    display: inline-block;
+    border: 1px solid whitesmoke;
+    margin-top: 0.25rem;
+  }
+.dotYellow {
+    height: 20px;
+    width: 20px;
+    background-color: yellow;
+    border-radius: 100%;
+    display: inline-block;
+    border: 1px solid whitesmoke;
+    margin-top: 0.25rem;
+  }
+.dotRed {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    border-radius: 100%;
+    display: inline-block;
+    border: 1px solid whitesmoke;
+    margin-top: 0.25rem;
+  }
+main form{
+    margin: 5% 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttoms{
+    padding: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+.SeachBar{
+    display: flex;
+    font-size: 1.5rem;
+    width: 80%;
+}
+.search{
+    width: 80%;
+    border: 2px solid var(--Maroon);
+}
+
+@media screen and (max-width: 800px){
+    .container{
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 0.5fr 1fr auto;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+    }
+    header{
+        grid-area: header;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header img{
+        height: auto;
+        width: 50%;
+    }
+}
