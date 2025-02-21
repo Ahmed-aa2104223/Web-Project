@@ -8,6 +8,8 @@
 }
 
 .container{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
     display: grid;
     height: 100vh;
     background-color: lightgray;
@@ -26,23 +28,32 @@ nav{
 }
 main{
     grid-area: main;
+    height: 1rem;
 }
 footer{
     grid-area: footer;
-    width: 100%;
-    padding-bottom: 2rem;
-    color: var(--Maroon);
-    font-size: 1.5rem;
+    height: 30px;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #8A1538;
 }
 header img{
     height: auto;
     width: 30%;
 }
+main form{
+    margin: 5% 10%;
+    display: flex;
+    justify-content: space-between;
+}
 .name{
+    display: flex;
+    justify-content: space-around;
     background-color: gray;
     border: 3px solid var(--Maroon);
-    padding-bottom: 2rem;
+    padding: 0.5% 0rem;
     margin: 5%;
+
 }
 .dotGreen {
     height: 20px;
@@ -71,11 +82,7 @@ header img{
     border: 1px solid whitesmoke;
     margin-top: 0.25rem;
   }
-main form{
-    margin: 5% 10%;
-    display: flex;
-    justify-content: space-between;
-}
+
 .buttoms{
     padding: auto;
     display: flex;
@@ -85,11 +92,18 @@ main form{
 .SeachBar{
     display: flex;
     font-size: 1.5rem;
-    width: 80%;
+    width: 80%;    
+    color: var(--Maroon);
 }
-.search{
+#search{
     width: 80%;
     border: 2px solid var(--Maroon);
+}
+.classes{
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-around;
+    height: 40rem;
 }
 
 @media screen and (max-width: 800px){
