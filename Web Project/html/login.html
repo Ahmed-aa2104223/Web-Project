@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="container">
@@ -15,12 +16,18 @@
     <main>
         <form action="">
             <div id="email">
-                <label for="Email">Email</label>
-                <input type="email" id="Email" placeholder="email">
+                <div>               
+                    <label for="Email">Email</label>
+                    <i class="material-icons">person</i>
+                </div>
+                <input type="email" id="Email" placeholder="email" name="email">
             </div>
             <div id="password">
-                <label for="pass_word">Password</label>
-                <input type="password" id="pass_word" placeholder="password">
+                <div>
+                    <label for="pass_word">Password</label>            
+                    <i class="material-icons">password</i>
+                </div>
+                <input type="password" id="pass_word" placeholder="password" name="password">
             </div>
             <div id="buttom">
                 <input type="submit" value="login">

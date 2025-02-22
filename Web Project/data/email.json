@@ -1,0 +1,17 @@
+[
+    {
+        "email" : "123@qu.edu.qa",
+        "password" : "123",
+        "state" : "student"
+    },
+    {
+        "email" : "100@qu.edu.qa",
+        "password" : "100",
+        "state" : "student"
+    },
+    {
+        "email" : "aa109@qu.edu.qa",
+        "password" : "aa109",
+        "state" : "student"
+    }
+]

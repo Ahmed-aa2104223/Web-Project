@@ -56,12 +56,24 @@ header img{
     border: 2px solid 	var(--Maroon);
     padding-top: 0.2rem;
 }
+#email div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
 #password{
     padding: 1rem;
 }
 #password label{
     padding: 0.5rem;
     font-size: 1.5rem;
+}
+#password div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
 }
 #password input{
     width: 70%;
@@ -97,15 +109,18 @@ form div{
 form div label{
     align-items: center;
 }
+form input{
+    padding: 10px;
+}
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 767px) {
     .container{
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
-        "header nav"
-        "main main"
-        "footer footer";
+        "header header header"
+        "main main main"
+        "footer footer footer";
     }
 
     #email input{
@@ -114,9 +129,35 @@ form div label{
     #password input{
         width: 90%;
     }
+    header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin-bottom: 15%;
+    }
     header img{
         height: auto;
-        width: 60%;
+        width: 30%;
+        max-width: 400px;
     }
+    form{
+        background-color: var(--Maroon);
+        margin: 0% 5%;
+        border-radius: 50px;
+    }
+    form label{
+        color: whitesmoke;
+    }
+    #buttom input{
+        border-radius: 25px;
+    }
+    #email div{
+        color: whitesmoke;
+    }
+    #password div{
+        color: whitesmoke;
+    }
+    
 
 }
