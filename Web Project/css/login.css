@@ -31,7 +31,7 @@ nav{
 main{
     grid-area: main;
     width: 100%;
-
+    margin-top: 20%;
 }
 footer{
     grid-area: footer;
@@ -42,7 +42,7 @@ footer{
 }
 header img{
     height: auto;
-    width: 80%;
+    width: 60%;
 }
 #email{
     padding: 1rem;
@@ -53,7 +53,8 @@ header img{
 }
 #email input{
     width: 70%;
-    border: 2px solid 	var(--Maroon);
+    border: none;
+    box-shadow: 2px 2px 30px 5px var(--Maroon);
     padding-top: 0.2rem;
 }
 #email div{
@@ -77,7 +78,8 @@ header img{
 }
 #password input{
     width: 70%;
-    border: 2px solid 	var(--Maroon);
+    border: none;
+    box-shadow: 0px 0px 30px 5px var(--Maroon);
     padding-top: 0.2rem;
 }
 #buttom{
@@ -122,7 +124,6 @@ form input{
         "main main main"
         "footer footer footer";
     }
-
     #email input{
         width: 90%;
     }
@@ -134,7 +135,6 @@ form input{
         justify-content: center;
         align-items: center;
         height: 100%;
-        margin-bottom: 15%;
     }
     header img{
         height: auto;
@@ -144,20 +144,24 @@ form input{
     form{
         background-color: var(--Maroon);
         margin: 0% 5%;
-        border-radius: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 5px rgb(0, 0, 0);
     }
     form label{
         color: whitesmoke;
     }
     #buttom input{
         border-radius: 25px;
+        border: 2.5px solid white;
     }
     #email div{
-        color: whitesmoke;
+        color: rgb(255, 255, 255);
     }
     #password div{
         color: whitesmoke;
     }
-    
+    main{
+        margin-top: 10%;
+    }
 
 }
