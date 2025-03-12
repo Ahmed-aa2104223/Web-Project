@@ -1,0 +1,19 @@
+[
+    {
+        "email" : "123@qu.edu.qa",
+        "name" : "Faisal",
+        "GPA" : 3.2,
+        "courses" : [
+            {
+                "course-code" : "CMPS 151",
+                "grade" : "A",
+                "status" : "complete"
+            },
+            {
+                "course-code" : "ENGL 201",
+                "grade" : "B+",
+                "status" : "complete"
+            }
+        ]   
+    }
+]
