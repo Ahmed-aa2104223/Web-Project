@@ -110,6 +110,23 @@ main form{
     border: 2px solid var(--Maroon);
     border-radius: 10px;
 }
+
+#search_button{
+    cursor: pointer;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+
+.btn[value = "active"]{
+    background-color: #807f7f;
+}
+
 .classes{
     background-color: rgb(192, 179, 179);
     display: flex;

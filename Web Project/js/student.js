@@ -1,27 +1,48 @@
 const courses = document.querySelector("#courses");
 const search = document.querySelector("#search");
 const searchButton = document.querySelector("#searching");
+const btnName = document.querySelector("#btnName");
+const btnCategory = document.querySelector("#btnCategory");
 
-// searchButton.addEventListener("submit",searching)
 
-searching();
 
-async function searching(){
-    // e.preventDefault();
+searchButton.addEventListener("submit",searching)
+
+read();
+
+
+async function searching(e){
+    e.preventDefault();
     const response = await fetch('../data/courses.json');
     const data = await response.json();
-    filtered = data.filter( (element) => element.course_name.includes("Pro"));
-    
-    
-    
+    value = search.value.toLowerCase();
+    if(btnName.value === "active")
+        filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value));
+    if(btnCategory.value === "active")
+        filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
+
+    courses.innerHTML = "";
+    filtered.forEach(element => {
+        courses.innerHTML += renderCourses(element);
+    });
     
     
 }
 
+// BUTTONS
+btnName.addEventListener("click", function(e){
+    e.preventDefault();
+    btnName.value = "active"
+    btnCategory.value = ""
+})
+
+btnCategory.addEventListener("click", function(e){
+    e.preventDefault();
+    btnName.value = ""
+    btnCategory.value = "active"
+})
 
 
-
-read();
 
 async function read(){
     const response = await fetch('../data/courses.json');
