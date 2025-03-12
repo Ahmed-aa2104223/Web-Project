@@ -1,5 +1,22 @@
 const courses = document.querySelector("#courses");
+const search = document.querySelector("#search");
+const searchButton = document.querySelector("#searching");
 
+// searchButton.addEventListener("submit",searching)
+
+searching();
+
+async function searching(){
+    // e.preventDefault();
+    const response = await fetch('../data/courses.json');
+    const data = await response.json();
+    filtered = data.filter( (element) => element.course_name.includes("Pro"));
+    
+    
+    
+    
+    
+}
 
 
 
