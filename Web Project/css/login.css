@@ -20,7 +20,6 @@
 
 header{
     grid-area: header;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +30,7 @@ nav{
 main{
     grid-area: main;
     width: 100%;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 footer{
     grid-area: footer;
@@ -42,14 +41,14 @@ footer{
 }
 header img{
     height: auto;
-    width: 60%;
+    width: 50%
 }
 #email{
     padding: 1rem;
 }
 #email label{
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 #email input{
     width: 70%;
@@ -68,7 +67,7 @@ header img{
 }
 #password label{
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 #password div{
     display: flex;
@@ -161,7 +160,7 @@ form input{
         color: whitesmoke;
     }
     main{
-        margin-top: 10%;
+        margin-top: 2%
     }
 
 }
