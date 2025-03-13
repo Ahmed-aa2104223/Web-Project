@@ -61,8 +61,48 @@ main form{
     box-shadow: 0px 0px 5px 5px var(--Maroon);
     padding: 0.5% 0rem;
     margin: 5%;
-
 }
+
+.student-course{
+    background-color: rgb(238, 238, 238);
+    text-align: center;
+    margin: 5%;
+    padding: 1rem;
+}
+
+.course-info{
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    padding: 0rem 1.2rem 0rem 1.2rem;
+    /* flex-direction: row; */
+}
+
+
+.card-course{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    height: fit-content;
+    gap: 5rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 1.2rem;
+    margin: 1.3rem;
+    box-shadow: 0px 10px rgba(175, 172, 172, 0.13);
+}
+
+.card-course-name{
+    /* background-color: red; */
+    /* width: 12rem; */
+}
+
+.grade-course{
+    /* background-color: red; */
+    /* width: 2rem; */
+}
+
+
 .dotGreen {
     height: 20px;
     width: 20px;
@@ -108,7 +148,9 @@ main form{
 #search{
     width: 80%;
     border: 2px solid var(--Maroon);
-    border-radius: 10px;
+    border-radius: 2px;
+    padding: 10px;
+    font-weight: 500;
 }
 
 #search_button{
@@ -200,7 +242,7 @@ h1{
 
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
     .container{
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr auto;

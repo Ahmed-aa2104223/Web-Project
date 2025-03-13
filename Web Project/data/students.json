@@ -2,17 +2,36 @@
     {
         "email" : "123@qu.edu.qa",
         "name" : "Faisal",
+        "id" : "202205767",
         "GPA" : 3.2,
         "courses" : [
             {
-                "course-code" : "CMPS 151",
+                "course_code" : "CMPS 151",
                 "grade" : "A",
-                "status" : "complete"
+                "status" : "completed"
             },
             {
-                "course-code" : "ENGL 201",
+                "course_code" : "ENGL 202",
                 "grade" : "B+",
-                "status" : "complete"
+                "status" : "completed"
+            }
+        ]   
+    },
+    {
+        "email" : "100@qu.edu.qa",
+        "name" : "Ahmed",
+        "id" : "202103425",
+        "GPA" : 3.9,
+        "courses" : [
+            {
+                "course_code" : "PHYS 192",
+                "grade" : "C+",
+                "status" : "In-progress"
+            },
+            {
+                "course_code" : "CHEM 103",
+                "grade" : "D",
+                "status" : "completed"
             }
         ]   
     }

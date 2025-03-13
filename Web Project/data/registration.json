@@ -1,0 +1,10 @@
+[
+    {
+        "course-code" : "CMPS 151",
+        "CRN" : "22151",
+        "status" : "open",
+        "seats" : 0,
+        "instructor" : "Mohammed",
+        "approved" : false
+    }
+]

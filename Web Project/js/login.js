@@ -29,6 +29,7 @@ async function login(e){
 
     email.forEach((element, index) =>{
         if(element.toLowerCase() === inputEmail.toLowerCase() && password[index] === inputPassword){
+            localStorage.setItem("email",inputEmail);
             window.location.href = `../html/${state[index]}.html`;
         } 
     })
