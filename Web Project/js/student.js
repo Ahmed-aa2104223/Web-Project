@@ -83,6 +83,21 @@ async function searching(e){
         filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
 
     courses.innerHTML = "";
+    
+    filtered.map((element) => {
+        if(element.prerequisite == null && element.concurrent_prerequisite)
+            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
+        else if(element.prerequisite == null )
+            element.prerequisite = "No prerequisite is needed"
+        else if(element.prerequisite.includes(""))
+            element.prerequisite = `Prerequisite: ${element.prerequisite}`
+        else
+            element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
+    })
+    
+    console.log(filtered);
+    
+
     filtered.forEach(element => {
         courses.innerHTML += renderCourses(element);
     });
@@ -94,6 +109,16 @@ async function searching(e){
 async function read(){
     const response = await fetch('../data/courses.json');
     const data = await response.json();
+    data.map((element) => {
+        if(element.prerequisite == null && element.concurrent_prerequisite)
+            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
+        else if(element.prerequisite == null )
+            element.prerequisite = "No prerequisite is needed"
+        else if(element.prerequisite.includes(""))
+            element.prerequisite = `Prerequisite: ${element.prerequisite}`
+        else
+            element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
+    })
     data.forEach(element => {
         courses.innerHTML += renderCourses(element);
     });
@@ -106,7 +131,7 @@ function renderCourses(data){
                     <h2>${data.course_code}</h2>
                     <p>${data.course_name}</p>
                     <p>${data.credit_hour} credits</p>
-                    <p>No prerequiste needed</p>
+                    <p>${data.prerequisite}</p>
                 </div>`;
     }
 }

@@ -200,8 +200,10 @@ h1{
     align-items: center; 
     margin: 5rem;
     padding: 5rem;
-   
+    
 }
+
+
 
 .card{
     align-items: center;
@@ -209,9 +211,11 @@ h1{
     border-radius: 0.2rem;
     margin: 1rem;
     width: 20rem;
-    height: 13rem;
+    height: 15rem;
     box-shadow: 0px 10px rgba(175, 172, 172, 0.13);
     padding: 1rem;
+    
+    overflow-y: auto;
 }
 
 .card li{
