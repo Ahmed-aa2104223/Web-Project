@@ -38,23 +38,24 @@ async function retrieve(){
     const response = await fetch('../data/students.json');
     const data = await response.json();
     filtered = data.find((element) => element.email.toLowerCase() === email);
-
-    studentinfo.innerHTML = `<h2>WELCOME &nbsp;&nbsp;&nbsp;&nbsp; ${filtered.name}!</h2>
-            <h2>GPA: ${filtered.GPA}</h2>`
-    
     const response2 = await fetch('../data/courses.json');
     const data2 = await response2.json();
-
+    
+    let gpaCourses = [];
     insertion.innerhtml = "";
     
     filtered.courses.forEach((e) => {
         courseInfo = data2.find((element) => element.course_code === e.course_code);
         courseInfo.status = e.status;
         courseInfo.grade = e.grade;
+        gpaCourses.push(courseInfo);
         insertion.innerHTML += renderInfo(courseInfo);
     });
 
+    gpa = calculateGPA(gpaCourses);
 
+    studentinfo.innerHTML = `<h2>WELCOME &nbsp;&nbsp;&nbsp;&nbsp; ${filtered.name}!</h2> 
+                            <h2>GPA: ${gpa}</h2>`
 }
 
 // rendering the student information
@@ -68,6 +69,27 @@ function renderInfo(course){
                 <h4 class="grade-course">${course.grade}</h4>
             </div>`;
     }
+}
+
+// calculate the GPA
+
+function calculateGPA(courses) {
+    const gradeScale = {
+        "A": 4.0, "B+": 3.5, "B": 3.0,"C+": 2.5,    
+        "C": 2.0, "D+": 1.5, "D": 1.0, "F": 0.0
+    };
+
+    let totalPoints = 0;
+    let totalCredits = 0;
+
+    courses.forEach(course => {
+        if (course.status === "Completed" && gradeScale[course.grade] !== undefined) {
+            totalPoints += gradeScale[course.grade] * course.credit_hour;
+            totalCredits += course.credit_hour;
+        }
+    });
+    
+    return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "N/A";
 }
 
 // searching
@@ -94,9 +116,6 @@ async function searching(e){
         else
             element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
     })
-    
-    console.log(filtered);
-    
 
     filtered.forEach(element => {
         courses.innerHTML += renderCourses(element);
