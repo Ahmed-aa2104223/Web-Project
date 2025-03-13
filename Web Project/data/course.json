@@ -1,11 +1,13 @@
 [
     {
         "instructor" : "Mohammed",
+        "course_code" : "CMPS 151",
         "students" : [
             {
                 "id" : "202205767",
                 "grade" : ""
             }
-        ]
+        ],
+        "seats" : 1
     }
 ]

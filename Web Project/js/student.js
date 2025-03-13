@@ -1,7 +1,6 @@
 // retrieve student info
 const email = localStorage.getItem("email");
 
-
 // selectors
 const courses = document.querySelector("#courses");
 const search = document.querySelector("#search");
@@ -88,7 +87,7 @@ function calculateGPA(courses) {
             totalCredits += course.credit_hour;
         }
     });
-    
+
     return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "N/A";
 }
 
