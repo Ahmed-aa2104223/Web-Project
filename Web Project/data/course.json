@@ -1,14 +1,13 @@
 [
     {
-        "instructor_name" : "Mohammed",
+        "instructor_name" : "Mohammed Saleh",
         "isntructor_email" : "mohammed@qu.edu.qa",
-        "crn" : "22151",
+        "CRN" : "22151",
         "students" : [
             {
                 "id" : "202205767",
                 "grade" : ""
             }
-        ],
-        "seats" : 1
+        ]
     }
 ]

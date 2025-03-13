@@ -5,6 +5,9 @@
 }
 :root{
     --Maroon: #8A1538;
+    font-family: "Inter", sans-serif;
+    font-size: var(0.85rem);
+    line-height: 1.8;
 }
 .container{
     background-image: url(../img/background.jpg);
@@ -46,6 +49,7 @@ header img{
     height: auto;
     width: 15%;
 }
+
 nav ul{
     display: flex;
     gap: 2rem;
@@ -61,14 +65,27 @@ nav ul li a{
     color: var(--Maroon);
     text-decoration:none;
 }
+
 nav ul li :hover{
     color: rgb(10, 10, 93);
 }
+
 main div{
     display: flex;
     justify-content: space-around;
     margin-top: 1%;
 }
+
+main .register{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1%;
+}
+
+#hide{
+    visibility: hidden;
+}
+
 form input{
     width: 5rem;
     border-radius: 15px;
@@ -81,6 +98,14 @@ form input:hover{
     color: aliceblue;
     border-color: aliceblue;
     box-shadow: 2px 2px black;
+}
+
+
+.register{
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    margin: 1rem;
+    
 }
 
 @media screen and (max-width: 900px){
