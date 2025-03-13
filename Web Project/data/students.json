@@ -8,12 +8,12 @@
             {
                 "course_code" : "CMPS 151",
                 "grade" : "A",
-                "status" : "completed"
+                "status" : "Completed"
             },
             {
                 "course_code" : "ENGL 202",
                 "grade" : "B+",
-                "status" : "completed"
+                "status" : "Completed"
             }
         ]   
     },
@@ -31,7 +31,7 @@
             {
                 "course_code" : "CHEM 103",
                 "grade" : "D",
-                "status" : "completed"
+                "status" : "Completed"
             }
         ]   
     }

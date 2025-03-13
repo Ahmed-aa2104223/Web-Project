@@ -9,6 +9,7 @@ const searchButton = document.querySelector("#searching");
 const btnName = document.querySelector("#btnName");
 const btnCategory = document.querySelector("#btnCategory");
 const insertion = document.querySelector("#insertion");
+const studentinfo = document.querySelector("#name")
 
 
 //event listeners
@@ -37,6 +38,9 @@ async function retrieve(){
     const response = await fetch('../data/students.json');
     const data = await response.json();
     filtered = data.find((element) => element.email.toLowerCase() === email);
+
+    studentinfo.innerHTML = `<h2>WELCOME &nbsp;&nbsp;&nbsp;&nbsp; ${filtered.name}!</h2>
+            <h2>GPA: ${filtered.GPA}</h2>`
     
     const response2 = await fetch('../data/courses.json');
     const data2 = await response2.json();
