@@ -7,13 +7,18 @@
         "courses" : [
             {
                 "course_code" : "CMPS 151",
-                "grade" : "A",
+                "grade" : "B",
                 "status" : "Completed"
             },
             {
                 "course_code" : "ENGL 202",
-                "grade" : "A",
-                "status" : "Completed"
+                "grade" : "N/A",
+                "status" : "In-progress"
+            },
+            {
+                "course_code" : "MATH 231",
+                "grade" : "N/A",
+                "status" : "Pending"
             }
         ]   
     },

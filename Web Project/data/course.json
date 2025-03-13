@@ -1,7 +1,8 @@
 [
     {
-        "instructor" : "Mohammed",
-        "course_code" : "CMPS 151",
+        "instructor_name" : "Mohammed",
+        "isntructor_email" : "mohammed@qu.edu.qa",
+        "crn" : "22151",
         "students" : [
             {
                 "id" : "202205767",

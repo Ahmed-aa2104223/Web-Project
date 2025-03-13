@@ -13,5 +13,10 @@
         "email" : "aa109@qu.edu.qa",
         "password" : "aa109",
         "state" : "student"
+    },
+    {
+        "email" : "mohammed@qu.edu.qa",
+        "password" : "mohd",
+        "state" : "instructor"
     }
 ]
