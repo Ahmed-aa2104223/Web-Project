@@ -1,5 +1,3 @@
-read()
-
 
 
 
@@ -10,10 +8,16 @@ const allCourses = JSON.parse(localStorage.getItem("allCourses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
 const students = JSON.parse(localStorage.getItem("students"))
 
+
+
+
 // selectors
 const course_list = document.querySelector("#course_list");
 
 course_list.addEventListener("submit",register);
+
+
+read()
 
 // registration
 async function register(e){
@@ -23,7 +27,7 @@ async function register(e){
         dupe.then((ans) =>{
             if(value){
                 if(ans){
-                    alert("dupe")
+                    alert("Dupe")
                 }else{
                     const studentID = students.find(student => student.email == email);
                     newCourse = {
@@ -34,13 +38,10 @@ async function register(e){
                     length = studentID.courses.length;
                     studentID.courses[length] = newCourse;
                     localStorage.setItem("students", JSON.stringify(students));
-                    alert("qualified")
-                    console.log(students);
-                    
+                    alert("You have successfully registered!")
                 }
             } else{
-                
-                alert("you are not qualified")
+                alert("You are not qualified")
             }
             
         })
@@ -109,9 +110,6 @@ async function isQualified(CRN){
 // save the registration details
 
 async function read() {
-    const response2 = await fetch('../data/registration.json');
-    const registration = await response2.json();
-    localStorage.setItem("registration",JSON.stringify(registration));
     localStorage.setItem("students", JSON.stringify(students));
 
     registration.forEach((e) =>{

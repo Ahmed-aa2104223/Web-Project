@@ -25,10 +25,20 @@ const submit = document.querySelector("#login");
 submit.addEventListener("submit", login)
 
 async function init() {
-    const response = await fetch('../data/students.json');
-    const data = await response.json();
-    localStorage.setItem("students", JSON.stringify(data));
-    
+    if (!localStorage.getItem("codeExecuted")) {
+        console.log("Running code for the first time...");
+        const response = await fetch('../data/students.json');
+        const data = await response.json();
+        localStorage.setItem("students", JSON.stringify(data));
+        const response2 = await fetch('../data/registration.json');
+        const registration = await response2.json();
+        localStorage.setItem("registration",JSON.stringify(registration));
+        // Set a flag in localStorage to mark it as executed
+        localStorage.setItem("codeExecuted", "true");
+
+    } else {
+        console.log("Code has already run before.");
+    }
 }
 
 async function login(e){
