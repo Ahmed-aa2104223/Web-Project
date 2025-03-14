@@ -1,28 +1,62 @@
 read()
 
+
+
+
 // retrieve student info
 const email = localStorage.getItem("email");
 const courses = JSON.parse(localStorage.getItem("courses"));
 const allCourses = JSON.parse(localStorage.getItem("allCourses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
+const students = JSON.parse(localStorage.getItem("students"))
 
 // selectors
 const course_list = document.querySelector("#course_list");
 
 course_list.addEventListener("submit",register);
 
-
+// registration
 async function register(e){
-    
+    dupe = dups(e);
     let myPromise = isQualified(e);
     myPromise.then((value) =>{
-        if(value){
-            alert("You are qualified")
-        } else{
-            alert("you are not qualified")
-        }
+        dupe.then((ans) =>{
+            if(value){
+                if(ans){
+                    alert("dupe")
+                }else{
+                    const studentID = students.find(student => student.email == email);
+                    newCourse = {
+                        "course_code" : registration.find(element => element.CRN == e).course_code,
+                        "grade" : "N/A",
+                        "status" : "Pending"
+                    }
+                    length = studentID.courses.length;
+                    studentID.courses[length] = newCourse;
+                    localStorage.setItem("students", JSON.stringify(students));
+                    alert("qualified")
+                    console.log(students);
+                    
+                }
+            } else{
+                
+                alert("you are not qualified")
+            }
+            
+        })
         
     })
+}
+
+
+// check dups
+async function dups(CRN){
+    course_code = registration.find((element) => element.CRN == CRN).course_code;
+    if(courses.find(element => element.course_code == course_code)){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 
@@ -66,10 +100,10 @@ async function isQualified(CRN){
             if(preq.filter(c => preqCourse.includes(c)).length == length)
                 return true;
             }
-        return false;
     } else {
         return false;
     }
+    return false;
 }
 
 // save the registration details
@@ -78,7 +112,8 @@ async function read() {
     const response2 = await fetch('../data/registration.json');
     const registration = await response2.json();
     localStorage.setItem("registration",JSON.stringify(registration));
-    
+    localStorage.setItem("students", JSON.stringify(students));
+
     registration.forEach((e) =>{
         e.course_name = allCourses.find((element) => element.course_code == e.course_code).course_name;
         e.credit_hour = allCourses.find((element) => element.course_code == e.course_code).credit_hour;
@@ -88,6 +123,7 @@ async function read() {
 
 }
 
+// render the courses
 
 function renderCourses(data){
     if(!data.course_name == ""){
@@ -106,7 +142,3 @@ function renderCourses(data){
                 </tr>`;
     }
 }
-
-
-// later
-

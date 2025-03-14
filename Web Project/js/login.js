@@ -2,6 +2,8 @@ let email = [];
 let password = [];
 let state = [];
 
+init();
+
 fetch("../data/email.json")
     .then(res => res.json())
     .then(data => {
@@ -21,6 +23,13 @@ const submit = document.querySelector("#login");
 
 
 submit.addEventListener("submit", login)
+
+async function init() {
+    const response = await fetch('../data/students.json');
+    const data = await response.json();
+    localStorage.setItem("students", JSON.stringify(data));
+    
+}
 
 async function login(e){
     e.preventDefault();

@@ -1,5 +1,10 @@
+window.onload = JSON.parse(localStorage.getItem("students"));
+
+
+
 // retrieve student info
 const email = localStorage.getItem("email");
+const students = JSON.parse(localStorage.getItem("students"))
 
 // selectors
 const courses = document.querySelector("#courses");
@@ -9,6 +14,7 @@ const btnName = document.querySelector("#btnName");
 const btnCategory = document.querySelector("#btnCategory");
 const insertion = document.querySelector("#insertion");
 const studentinfo = document.querySelector("#name");
+
 // const registerlink = document.querySelector("#registerlink");
 
 //event listeners
@@ -19,6 +25,7 @@ searchButton.addEventListener("submit",searching)
 // functions
 read();
 retrieve();
+
 
 
 // BUTTONS
@@ -36,9 +43,7 @@ btnCategory.addEventListener("click", function(e){
 
 // retrieving student info
 async function retrieve(){  
-    const response = await fetch('../data/students.json');
-    const data = await response.json();
-    filtered = data.find((element) => element.email.toLowerCase() === email);
+    filtered = students.find((element) => element.email.toLowerCase() === email);
     
     localStorage.setItem("courses",JSON.stringify(filtered.courses));
     
@@ -48,6 +53,9 @@ async function retrieve(){
     let gpaCourses = [];
     insertion.innerhtml = "";
     
+    console.log(filtered);
+    
+
     filtered.courses.forEach((e) => {
         courseInfo = data2.find((element) => element.course_code === e.course_code);
         courseInfo.status = e.status;

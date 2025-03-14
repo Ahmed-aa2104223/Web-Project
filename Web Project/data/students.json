@@ -29,7 +29,7 @@
         "GPA" : 0,
         "courses" : [
             {
-                "course_code" : "ENGL 203",
+                "course_code" : "CMPS 493",
                 "grade" : "B",
                 "status" : "Completed"
             },

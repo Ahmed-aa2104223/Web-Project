@@ -2,7 +2,7 @@
     {
         "course_code" : "CMPS 151",
         "CRN" : "22151",
-        "status" : "closed",
+        "status" : "open",
         "seats" : 20,
         "instructor" : "Mohammed",
         "approved" : false
