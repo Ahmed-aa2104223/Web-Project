@@ -1,4 +1,4 @@
-
+read()
 
 // retrieve student info
 const email = localStorage.getItem("email");
@@ -9,7 +9,22 @@ const registration = JSON.parse(localStorage.getItem("registration"));
 // selectors
 const course_list = document.querySelector("#course_list");
 
-read()
+course_list.addEventListener("submit",register);
+
+
+async function register(e){
+    
+    let myPromise = isQualified(e);
+    myPromise.then((value) =>{
+        if(value){
+            alert("You are qualified")
+        } else{
+            alert("you are not qualified")
+        }
+        
+    })
+}
+
 
 // check whether the student is qualifed to register for the course
 
@@ -76,16 +91,16 @@ async function read() {
 
 function renderCourses(data){
     if(!data.course_name == ""){
-        return `<tr value="${data.status}">
-                    <td>${data.course_name}</td>
-                    <td>${data.course_code}</td>
-                    <td>${data.credit_hour}</td>
-                    <td>${data.instructor}</td>
-                    <td>${data.seats}</td>
-                    <td>${data.CRN}</td>
+        return `<tr value="${data.status}" id="${data.CRN}">
+                    <td class="course_name">${data.course_name}</td>
+                    <td class="course_code">${data.course_code}</td>
+                    <td class="credit_hour">${data.credit_hour}</td>
+                    <td class="instructor">${data.instructor}</td>
+                    <td class="seats">${data.seats}</td>
+                    <td class="CRN">${data.CRN}</td>
                     <td>
                         <form>
-                            <input type="submit" value="Register">
+                            <input type="submit" value="Register" onClick="event.preventDefault();register(${data.CRN})">
                         </form>
                     </td>
                 </tr>`;
@@ -94,20 +109,4 @@ function renderCourses(data){
 
 
 // later
-// document.querySelectorAll("tbody tr").forEach(row => {
-//     row.querySelector("input[type='submit']").addEventListener("click", function(event) {
-//         event.preventDefault(); // Prevent form submission
 
-//         let cells = row.querySelectorAll("td");
-//         let courseData = {
-//             courseName: cells[0].innerText,
-//             courseCode: cells[1].innerText,
-//             creditHour: cells[2].innerText,
-//             instructor: cells[3].innerText,
-//             seats: cells[4].innerText,
-//             crn: cells[5].innerText
-//         };
-
-//         console.log("Selected Course:", courseData);
-//     });
-// });
