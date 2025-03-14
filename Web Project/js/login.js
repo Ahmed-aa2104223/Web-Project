@@ -26,13 +26,31 @@ submit.addEventListener("submit", login)
 
 async function init() {
     if (!localStorage.getItem("codeExecuted")) {
+        localStorage.clear();
         console.log("Running code for the first time...");
+
+        
+
         const response = await fetch('../data/students.json');
         const data = await response.json();
         localStorage.setItem("students", JSON.stringify(data));
+
         const response2 = await fetch('../data/registration.json');
         const registration = await response2.json();
         localStorage.setItem("registration",JSON.stringify(registration));
+
+        const response3 = await fetch('../data/instructors.json');
+        const instructors = await response3.json();
+        localStorage.setItem("instructorsJSON",JSON.stringify(instructors));
+        
+        const response4 = await fetch('../data/courses.json');
+        const courses = await response4.json();
+        localStorage.setItem("courses",JSON.stringify(courses));
+
+        const response5 = await fetch('../data/course.json');
+        const course = await response5.json();
+        localStorage.setItem("courseJSON",JSON.stringify(course));
+    
         // Set a flag in localStorage to mark it as executed
         localStorage.setItem("codeExecuted", "true");
 
