@@ -70,43 +70,63 @@ nav ul li :hover{
     color: rgb(10, 10, 93);
 }
 
-main div{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1%;
+
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
 }
 
-main .register{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1%;
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#hide{
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff; 
+}
+
+tbody tr:hover {
+    background-color: #e0e0e0; 
+    transition: 0.3s;
+}
+
+
+tbody tr[value="closed"]{
+    background-color: #727171;
+    color: rgb(180, 178, 178);
+}
+
+tbody tr[value="closed"] form{
     visibility: hidden;
 }
 
-form input{
-    width: 5rem;
-    border-radius: 15px;
-    padding: 0.3rem;
-    border-color: #8A1538;
-    background-color: aliceblue;
-}
-form input:hover{
-    background-color: var(--Maroon);
-    color: aliceblue;
-    border-color: aliceblue;
-    box-shadow: 2px 2px black;
+input[type="submit"] {
+    padding: 6px 12px;
+    border: 1px solid #333;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-
-.register{
-    background-color: rgb(255, 255, 255);
-    padding: 1rem;
-    margin: 1rem;
-    
+input[type="submit"]:hover {
+    background-color: #ddd;
 }
+
 
 @media screen and (max-width: 900px){
     header img{

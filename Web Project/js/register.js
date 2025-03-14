@@ -1,4 +1,3 @@
-read()
 
 
 // retrieve student info
@@ -7,6 +6,10 @@ const courses = JSON.parse(localStorage.getItem("courses"));
 const allCourses = JSON.parse(localStorage.getItem("allCourses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
 
+// selectors
+const course_list = document.querySelector("#course_list");
+
+read()
 
 // check whether the student is qualifed to register for the course
 
@@ -15,7 +18,7 @@ async function isQualified(CRN){
     preq = allCourses.find((element) => element.course_code == course_code).prerequisite;
     conpreq = allCourses.find((element) => element.course_code == course_code).concurrent_prerequisite;
     courseStatus = registration.find((element) => element.CRN == CRN).status;    
-    
+
     if(courseStatus == "open"){
         if(preq == null && conpreq){
             if(courses.find((element) => element.course_code == conpreq))
@@ -60,4 +63,51 @@ async function read() {
     const response2 = await fetch('../data/registration.json');
     const registration = await response2.json();
     localStorage.setItem("registration",JSON.stringify(registration));
+    
+    registration.forEach((e) =>{
+        e.course_name = allCourses.find((element) => element.course_code == e.course_code).course_name;
+        e.credit_hour = allCourses.find((element) => element.course_code == e.course_code).credit_hour;
+        course_list.innerHTML += renderCourses(e);
+    })
+    
+
 }
+
+
+function renderCourses(data){
+    if(!data.course_name == ""){
+        return `<tr value="${data.status}">
+                    <td>${data.course_name}</td>
+                    <td>${data.course_code}</td>
+                    <td>${data.credit_hour}</td>
+                    <td>${data.instructor}</td>
+                    <td>${data.seats}</td>
+                    <td>${data.CRN}</td>
+                    <td>
+                        <form>
+                            <input type="submit" value="Register">
+                        </form>
+                    </td>
+                </tr>`;
+    }
+}
+
+
+// later
+// document.querySelectorAll("tbody tr").forEach(row => {
+//     row.querySelector("input[type='submit']").addEventListener("click", function(event) {
+//         event.preventDefault(); // Prevent form submission
+
+//         let cells = row.querySelectorAll("td");
+//         let courseData = {
+//             courseName: cells[0].innerText,
+//             courseCode: cells[1].innerText,
+//             creditHour: cells[2].innerText,
+//             instructor: cells[3].innerText,
+//             seats: cells[4].innerText,
+//             crn: cells[5].innerText
+//         };
+
+//         console.log("Selected Course:", courseData);
+//     });
+// });

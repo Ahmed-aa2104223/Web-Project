@@ -2,7 +2,7 @@
     {
         "course_code" : "CMPS 151",
         "CRN" : "22151",
-        "status" : "close",
+        "status" : "closed",
         "seats" : 20,
         "instructor" : "Mohammed",
         "approved" : false
@@ -12,7 +12,7 @@
         "CRN" : "22152",
         "status" : "open",
         "seats" : 25,
-        "instructor" : "Mohammed",
+        "instructor" : "Ahmed",
         "approved" : false
     },
     {
@@ -20,7 +20,7 @@
         "CRN" : "22153",
         "status" : "open",
         "seats" : 30,
-        "instructor" : "Mohammed",
+        "instructor" : "Yuri",
         "approved" : false
     },
     {
@@ -28,7 +28,7 @@
         "CRN" : "22154",
         "status" : "open",
         "seats" : 51,
-        "instructor" : "Mohammed",
+        "instructor" : "Saleh",
         "approved" : false
     },
     {
@@ -36,7 +36,7 @@
         "CRN" : "22155",
         "status" : "open",
         "seats" : 40,
-        "instructor" : "Mohammed",
+        "instructor" : "Moutaz",
         "approved" : false
     }
 ]
