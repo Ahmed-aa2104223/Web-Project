@@ -1,11 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .header {
+      background: #ccc;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      margin: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 10px;
+      border: 1px solid #aaa;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+    table, th, td {
+      border: 1px solid #000;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    .btn {
+      padding: 5px 8px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    input[type="text"], input[type="number"], select {
+      width: 95%;
+      padding: 5px;
+      margin: 5px 0;
+    }
+    input[type="submit"] {
+      padding: 7px 15px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    
+  <div class="header">
+    <h1>Administrator Dashboard</h1>
+    <p>Manage Courses and Classes</p>
+  </div>
+  
+  <div class="container">
+    <!-- Section: List of Courses -->
+    <div class="section">
+      <h2>Current Courses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Course Name</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Classes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example course row. In a real app, rows would be generated dynamically -->
+          <tr>
+            <td>Intro to Programming</td>
+            <td>Programming</td>
+            <td>Open for Registration</td>
+            <td>
+              <ul style="margin:0; padding-left: 20px;">
+                <li>Class A - Instructor: John Doe (10/30 regs)</li>
+                <li>Class B - Instructor: Jane Smith (5/30 regs)</li>
+              </ul>
+            </td>
+            <td>
+              <button class="btn">Validate</button>
+              <button class="btn">Cancel</button>
+            </td>
+          </tr>
+          <!-- Additional course rows can be added here -->
+        </tbody>
+      </table>
+      <p style="font-size: 0.9em;">* Courses are shown with their status and classes. Only validated classes can start.</p>
+    </div>
+
+    <!-- Section: Create New Course -->
+    <div class="section">
+      <h2>Create New Course</h2>
+      <form id="newCourseForm">
+        <label for="courseName">Course Name:</label><br>
+        <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required><br><br>
+        
+        <label for="courseCategory">Category:</label><br>
+        <input type="text" id="courseCategory" name="courseCategory" placeholder="e.g., Programming, Databases" required><br><br>
+        
+        <label for="courseStatus">Status:</label><br>
+        <select id="courseStatus" name="courseStatus">
+          <option value="open">Open for Registration</option>
+          <option value="in-progress">In Progress</option>
+        </select><br><br>
+        
+        <input type="submit" value="Create Course">
+      </form>
+    </div>
+
+    <!-- Section: Create New Class -->
+    <div class="section">
+      <h2>Create New Class</h2>
+      <form id="newClassForm">
+        <label for="classCourse">Select Course:</label><br>
+        <select id="classCourse" name="classCourse">
+          <option value="">--Select Course--</option>
+          <option value="introToProgramming">Intro to Programming</option>
+          <!-- More courses would be listed here dynamically -->
+        </select><br><br>
+        
+        <label for="instructorName">Instructor Name:</label><br>
+        <input type="text" id="instructorName" name="instructorName" placeholder="Enter instructor name" required><br><br>
+        
+        <label for="maxRegistrations">Max Registrations:</label><br>
+        <input type="number" id="maxRegistrations" name="maxRegistrations" placeholder="Enter max registrations" required><br><br>
+        
+        <input type="submit" value="Create Class">
+      </form>
+    </div>
+  </div>
 </body>
 </html>
