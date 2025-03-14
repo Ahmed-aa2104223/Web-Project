@@ -8,11 +8,13 @@ const searchButton = document.querySelector("#searching");
 const btnName = document.querySelector("#btnName");
 const btnCategory = document.querySelector("#btnCategory");
 const insertion = document.querySelector("#insertion");
-const studentinfo = document.querySelector("#name")
-
+const studentinfo = document.querySelector("#name");
+// const registerlink = document.querySelector("#registerlink");
 
 //event listeners
 searchButton.addEventListener("submit",searching)
+// registerlink.addEventListener("click",send)
+
 
 // functions
 read();
@@ -37,6 +39,9 @@ async function retrieve(){
     const response = await fetch('../data/students.json');
     const data = await response.json();
     filtered = data.find((element) => element.email.toLowerCase() === email);
+    
+    localStorage.setItem("courses",JSON.stringify(filtered.courses));
+    
     const response2 = await fetch('../data/courses.json');
     const data2 = await response2.json();
     
@@ -127,6 +132,7 @@ async function searching(e){
 async function read(){
     const response = await fetch('../data/courses.json');
     const data = await response.json();
+    localStorage.setItem("allCourses", JSON.stringify(data));
     data.map((element) => {
         if(element.prerequisite == null && element.concurrent_prerequisite)
             element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `

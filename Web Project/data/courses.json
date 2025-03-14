@@ -120,7 +120,7 @@
       "course_name": "Design & Analysis of Algorithms",
       "course_code": "CMPS 323",
       "credit_hour": 3,
-      "prerequisite": ["CMPS 300","CMPS 205"]
+      "prerequisite": ["CMPS 303","CMPS 205"]
     },
     {
       "course_name": "Fundamentals of Database",

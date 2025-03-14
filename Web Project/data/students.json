@@ -29,12 +29,17 @@
         "GPA" : 0,
         "courses" : [
             {
-                "course_code" : "PHYS 192",
+                "course_code" : "ENGL 203",
                 "grade" : "B",
                 "status" : "Completed"
             },
             {
-                "course_code" : "CHEM 103",
+                "course_code" : "CMPS 350",
+                "grade" : "C",
+                "status" : "Completed"
+            },
+            {
+                "course_code" : "CMPS 405",
                 "grade" : "C",
                 "status" : "Completed"
             }
