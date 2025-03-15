@@ -3,13 +3,12 @@
 
 // retrieve student info
 const email = localStorage.getItem("email");
-const courses = JSON.parse(localStorage.getItem("courses"));
+const studentCourses = JSON.parse(localStorage.getItem("studentCourses"));
 const allCourses = JSON.parse(localStorage.getItem("allCourses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
 const students = JSON.parse(localStorage.getItem("students"))
 const course = JSON.parse(localStorage.getItem("courseJSON"))
 
-console.log(course);
 
 
 
@@ -24,13 +23,14 @@ read()
 // registration
 async function register(e){
     dupe = dups(e);
+    seat = registration.find(element => element.CRN == e).seats
     let myPromise = isQualified(e);
     myPromise.then((value) =>{
         dupe.then((ans) =>{
             if(value){
                 if(ans){
                     alert("Dupe")
-                }else{
+                }else if (!ans && countSeats(e)<seat){
                     const studentID = students.find(student => student.email == email);
                     let newCourse = {
                         "course_code" : registration.find(element => element.CRN == e).course_code,
@@ -40,7 +40,9 @@ async function register(e){
                     length = studentID.courses.length;
                     studentID.courses[length] = newCourse;
                     localStorage.setItem("students", JSON.stringify(students));
-
+                    localStorage.setItem("studentCourses", JSON.stringify(studentID.courses));
+                    
+                    
                     const registerCourse = course.find( element => element.CRN == e);
                     let newStudent = {
                         "id" : studentID.id,
@@ -52,8 +54,10 @@ async function register(e){
                     
                     course_list.innerHTML = "";
                     read();
-
+                    window.location = window.location.href;
                     alert("You have successfully registered!")
+                }else{
+                    alert("No seats available")
                 }
             } else{
                 alert("You are not qualified")
@@ -68,7 +72,7 @@ async function register(e){
 // check dups
 async function dups(CRN){
     course_code = registration.find((element) => element.CRN == CRN).course_code;
-    if(courses.find(element => element.course_code == course_code)){
+    if(studentCourses.find(element => element.course_code == course_code)){
         return true;
     }else{
         return false;
@@ -86,20 +90,20 @@ async function isQualified(CRN){
 
     if(courseStatus == "open"){
         if(preq == null && conpreq){
-            if(courses.find((element) => element.course_code == conpreq))
+            if(studentCourses.find((element) => element.course_code == conpreq))
                 return true; 
             }          
         else if(preq == null)
             return true;
         else if(preq.includes("")){
             if(course_code != "CMPS 493"){
-                if(courses.find((element) => element.course_code == preq))
+                if(studentCourses.find((element) => element.course_code == preq))
                     return true; 
             } else{
                 preq1 = ["CMPS 310","CMPS 350"];
                 preq2 = ["CMPS 310","CMPS 405"];
                 preqCourse = [];
-                courses.forEach(element => {
+                studentCourses.forEach(element => {
                     preqCourse.push(element.course_code);
                 });
                 if(preq1.filter(c => preqCourse.includes(c)).length == 2 || preq2.filter(c => preqCourse.includes(c)).length == 2){
@@ -110,7 +114,7 @@ async function isQualified(CRN){
         else{
             length = preq.length;
             preqCourse = [];
-            courses.forEach(element => {
+            studentCourses.forEach(element => {
                 preqCourse.push(element.course_code);
             });
             if(preq.filter(c => preqCourse.includes(c)).length == length)

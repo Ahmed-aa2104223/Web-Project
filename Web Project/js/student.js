@@ -45,16 +45,13 @@ btnCategory.addEventListener("click", function(e){
 async function retrieve(){  
     filtered = students.find((element) => element.email.toLowerCase() === email);
     
-    localStorage.setItem("courses",JSON.stringify(filtered.courses));
+    localStorage.setItem("studentCourses",JSON.stringify(filtered.courses));
     
     const response2 = await fetch('../data/courses.json');
     const data2 = await response2.json();
     
     let gpaCourses = [];
     insertion.innerhtml = "";
-    
-    console.log(filtered);
-    
 
     filtered.courses.forEach((e) => {
         courseInfo = data2.find((element) => element.course_code === e.course_code);

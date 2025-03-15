@@ -6,11 +6,6 @@
         "GPA" : 0,
         "courses" : [
             {
-                "course_code" : "CMPS 151",
-                "grade" : "B",
-                "status" : "Completed"
-            },
-            {
                 "course_code" : "ENGL 202",
                 "grade" : "N/A",
                 "status" : "In-progress"
