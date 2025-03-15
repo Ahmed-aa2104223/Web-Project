@@ -1,12 +1,51 @@
 [
     {
-        "instructor_name" : "Mohammed Saleh",
+        "instructor_name" : "Mohammed",
         "isntructor_email" : "mohammed@qu.edu.qa",
         "CRN" : "22151",
         "students" : [
             {
-                "id" : "202205767",
-                "grade" : ""
+                
+            }
+        ]
+    },
+    {
+        "instructor_name" : "Ahmed",
+        "isntructor_email" : "ahmed@qu.edu.qa",
+        "CRN" : "22152",
+        "students" : [
+            {
+               
+            }
+        ]
+    },
+    {
+        "instructor_name" : "Yuri",
+        "isntructor_email" : "yuri@qu.edu.qa",
+        "CRN" : "22153",
+        "students" : [
+            {
+                
+            }
+        ]
+    },
+    {
+        "instructor_name" : "Saleh",
+        "isntructor_email" : "saleh@qu.edu.qa",
+        "CRN" : "22154",
+        "students" : [
+            {
+               
+            }
+        ]
+    },
+    {
+        "instructor_name" : "Moutaz",
+        "isntructor_email" : "moutaz@qu.edu.qa",
+        "CRN" : "22155",
+        "students" : [
+            {
+               
             }
         ]
     }

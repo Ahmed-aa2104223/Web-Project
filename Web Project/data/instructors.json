@@ -4,5 +4,29 @@
         "email" : "mohammed@qu.edu.qa",
         "expertise" : "CMPS",
         "CRNS" : [22151]
+    },
+    {
+        "name" : "Ahmed",
+        "email" : "ahmed@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22152]
+    },
+    {
+        "name" : "Yuri",
+        "email" : "yuri@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22153]
+    },
+    {
+        "name" : "Saleh",
+        "email" : "saleh@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22154]
+    },
+    {
+        "name" : "Moutaz",
+        "email" : "moutaz@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22155]
     }
 ]

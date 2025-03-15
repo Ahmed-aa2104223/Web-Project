@@ -107,6 +107,12 @@ async function isQualified(CRN){
     return false;
 }
 
+// count seats
+async function countSeats(CRN) {
+    
+}
+
+
 // save the registration details
 
 async function read() {
