@@ -4,9 +4,7 @@
         "isntructor_email" : "mohammed@qu.edu.qa",
         "CRN" : "22151",
         "students" : [
-            {
-                
-            }
+
         ]
     },
     {
@@ -14,9 +12,6 @@
         "isntructor_email" : "ahmed@qu.edu.qa",
         "CRN" : "22152",
         "students" : [
-            {
-               
-            }
         ]
     },
     {
@@ -24,9 +19,7 @@
         "isntructor_email" : "yuri@qu.edu.qa",
         "CRN" : "22153",
         "students" : [
-            {
-                
-            }
+
         ]
     },
     {
@@ -34,9 +27,7 @@
         "isntructor_email" : "saleh@qu.edu.qa",
         "CRN" : "22154",
         "students" : [
-            {
-               
-            }
+
         ]
     },
     {
@@ -44,9 +35,7 @@
         "isntructor_email" : "moutaz@qu.edu.qa",
         "CRN" : "22155",
         "students" : [
-            {
-               
-            }
+
         ]
     }
 ]

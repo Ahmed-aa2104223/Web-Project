@@ -7,7 +7,9 @@ const courses = JSON.parse(localStorage.getItem("courses"));
 const allCourses = JSON.parse(localStorage.getItem("allCourses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
 const students = JSON.parse(localStorage.getItem("students"))
+const course = JSON.parse(localStorage.getItem("courseJSON"))
 
+console.log(course);
 
 
 
@@ -30,7 +32,7 @@ async function register(e){
                     alert("Dupe")
                 }else{
                     const studentID = students.find(student => student.email == email);
-                    newCourse = {
+                    let newCourse = {
                         "course_code" : registration.find(element => element.CRN == e).course_code,
                         "grade" : "N/A",
                         "status" : "Pending"
@@ -38,6 +40,19 @@ async function register(e){
                     length = studentID.courses.length;
                     studentID.courses[length] = newCourse;
                     localStorage.setItem("students", JSON.stringify(students));
+
+                    const registerCourse = course.find( element => element.CRN == e);
+                    let newStudent = {
+                        "id" : studentID.id,
+                        "grade" : "N/A"
+                    }
+                    lengthC = registerCourse.students.length;
+                    registerCourse.students[lengthC] = newStudent;
+                    localStorage.setItem("courseJSON", JSON.stringify(course))
+                    
+                    course_list.innerHTML = "";
+                    read();
+
                     alert("You have successfully registered!")
                 }
             } else{
@@ -108,7 +123,10 @@ async function isQualified(CRN){
 }
 
 // count seats
-async function countSeats(CRN) {
+function countSeats(CRN) {
+    const registerCourse = course.find( element => element.CRN == CRN);
+    count = registerCourse.students.length;
+    return count;
     
 }
 
@@ -119,8 +137,10 @@ async function read() {
     localStorage.setItem("students", JSON.stringify(students));
 
     registration.forEach((e) =>{
+        count = countSeats(e.CRN);
         e.course_name = allCourses.find((element) => element.course_code == e.course_code).course_name;
         e.credit_hour = allCourses.find((element) => element.course_code == e.course_code).credit_hour;
+        e.actual_seats = e.seats - count;
         course_list.innerHTML += renderCourses(e);
     })
     
@@ -136,7 +156,7 @@ function renderCourses(data){
                     <td class="course_code">${data.course_code}</td>
                     <td class="credit_hour">${data.credit_hour}</td>
                     <td class="instructor">${data.instructor}</td>
-                    <td class="seats">${data.seats}</td>
+                    <td class="seats">${data.actual_seats}/${data.seats}</td>
                     <td class="CRN">${data.CRN}</td>
                     <td>
                         <form>
