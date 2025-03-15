@@ -7,11 +7,13 @@
         "courses" : [
             {
                 "course_code" : "ENGL 202",
+                "CRN" : "20002",
                 "grade" : "N/A",
                 "status" : "In-progress"
             },
             {
                 "course_code" : "MATH 231",
+                "CRN" : "20231",
                 "grade" : "N/A",
                 "status" : "Pending"
             }
@@ -25,16 +27,19 @@
         "courses" : [
             {
                 "course_code" : "CMPS 493",
+                "CRN" : "20493",
                 "grade" : "B",
                 "status" : "Completed"
             },
             {
                 "course_code" : "CMPS 310",
+                "CRN" : "20310",
                 "grade" : "C",
                 "status" : "Completed"
             },
             {
                 "course_code" : "CMPS 405",
+                "CRN" : "20405",
                 "grade" : "C",
                 "status" : "Completed"
             }
