@@ -38,5 +38,13 @@
         "seats" : 40,
         "instructor" : "Moutaz",
         "approved" : false
+    },
+    {
+        "course_code" : "CMPS 493",
+        "CRN" : "22156",
+        "status" : "open",
+        "seats" : 20,
+        "instructor" : "Yousef",
+        "approved" : false
     }
 ]
