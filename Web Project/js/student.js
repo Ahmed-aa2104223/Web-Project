@@ -19,7 +19,7 @@ const studentinfo = document.querySelector("#name");
 
 //event listeners
 searchButton.addEventListener("submit",searching)
-// registerlink.addEventListener("click",send)
+
 
 
 // functions

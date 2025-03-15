@@ -10,8 +10,6 @@ const students = JSON.parse(localStorage.getItem("students"))
 const course = JSON.parse(localStorage.getItem("courseJSON"))
 
 
-
-
 // selectors
 const course_list = document.querySelector("#course_list");
 
