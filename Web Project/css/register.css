@@ -124,7 +124,13 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #ddd;
+    background-color: var(--Maroon);
+}
+
+input:hover{
+    color: whitesmoke;
+    background-color: #8A1538;
+    box-shadow: 3px 3px black;
 }
 
 
