@@ -14,6 +14,10 @@ const btnName = document.querySelector("#btnName");
 const btnCategory = document.querySelector("#btnCategory");
 const insertion = document.querySelector("#insertion");
 const studentinfo = document.querySelector("#name");
+const Gbuttom = document.querySelector("#GButtom");
+const Ybuttom = document.querySelector("#YButtom");
+const Rbuttom = document.querySelector("#RButtom");
+
 
 // const registerlink = document.querySelector("#registerlink");
 
@@ -26,7 +30,11 @@ searchButton.addEventListener("submit",searching)
 read();
 retrieve();
 
+//Filter Buttoms
+// Gbuttom.addEventListener("click", function(e){
+//     e.preventDefault();
 
+// })
 
 // BUTTONS
 btnName.addEventListener("click", function(e){
@@ -69,16 +77,26 @@ async function retrieve(){
 
 // rendering the student information
 function renderInfo(course){
+    let colourFinder;
     if(!course.course_name == ""){
+        if(course.status == "var(--Green)")
+            colourFinder = "green";
+        if (course.status == "In-progress")
+            colourFinder = "var(--Yellow)";
+        if (course.status == "Pending") 
+            colourFinder = "var(--Red)";
+        
+
         return ` <div class="card-course">
                 <h3>${course.course_code}</h1>
                 <h4 class="card-course-name">${course.course_name}</h4>
                 <h4>${course.credit_hour} CREDITS</h4>
                 <h4>${course.status}</h4>
-                <h4 class="grade-course">${course.grade}</h4>
+                <h4 style="color: ${colourFinder};" class="grade-course" >${course.grade}</h4>
             </div>`;
     }
 }
+
 
 // calculate the GPA
 

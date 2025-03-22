@@ -5,6 +5,9 @@
 }
 :root{
     --Maroon: #8A1538;
+    --Yellow: #e6e600;
+    --Green: #008000;
+    --Red: #ff0000;
     font-family: "Inter", sans-serif;
     font-size: var(0.85rem);
     line-height: 1.8;
@@ -93,27 +96,27 @@ main form{
 }
 
 .dotGreen {
-    height: 20px;
-    width: 20px;
-    background-color: green;
+    height: 25px;
+    width: 25px;
+    background-color: var(--Green);
     border-radius: 100%;
     display: inline-block;
     border: 1px solid whitesmoke;
     margin-top: 0.25rem;
   }
 .dotYellow {
-    height: 20px;
-    width: 20px;
-    background-color: yellow;
+    height: 25px;
+    width: 25px;
+    background-color: var(--Yellow);
     border-radius: 100%;
     display: inline-block;
     border: 1px solid whitesmoke;
     margin-top: 0.25rem;
   }
 .dotRed {
-    height: 20px;
-    width: 20px;
-    background-color: red;
+    height: 25px;
+    width: 25px;
+    background-color: var(--Red);
     border-radius: 100%;
     display: inline-block;
     border: 1px solid whitesmoke;
