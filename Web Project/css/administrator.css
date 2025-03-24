@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Maroon: #8A1538;
+    --Yellow: #e6e600;
+    --Green: #008000;
+    --Red: #ff0000;
+    font-family: "Inter", sans-serif;
+    font-size: var(0.85rem);
+    line-height: 1.8;
+}
+body { 
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    font-family: Arial,sans-serif;
+    margin: 0; 
+    padding: 0; 
+    }
+.header {
+    color: var(--Maroon);
+  background: #b4b4b47e;
+  padding: 15px;
+  text-align: center;
+}
+.container {
+  margin: 20px;
+}
+.section {
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid #aaa;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+table, th, td {
+  border: 1px solid #000;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+.btn {
+  padding: 5px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+input[type="text"], input[type="number"], select {
+  width: 95%;
+  padding: 5px;
+  margin: 5px 0;
+}
+input[type="submit"] {
+  padding: 7px 15px;
+  cursor: pointer;
+}
+h2{
+    color: var(--Maroon);
+}
+ul{
+    list-style: none;
+}

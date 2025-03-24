@@ -11,6 +11,7 @@ const course_name = document.querySelector("#courseName");
 const course_category = document.querySelector("#courseCategory");
 const course_hours = document.querySelector("#courseHours");
 const course_status = document.querySelector("#courseStatus");
+const courses_List = document.querySelector("#courses");
 
 read()
 
@@ -51,30 +52,47 @@ async function read() {
     })
     
     console.log(list);
-
-    
-
+    renderCourses(list);
 }
 
 
 
 // render the courses
 function renderCourses(data){
-    if(!data.course_name == ""){
-        return `<tr>
-            <td>${data.course_name}</td>
+    // if(!data.course_name == ""){
+        // return `<tr>
+        //     <td>${data.course_name}</td>
+        //     <td>${data.course_code}</td>
+        //     <td>${ (data.course_name == 'open') ? "Open for Registration" : "Pending"}</td>
+        //     <td>
+        //       <ul style="margin:0; padding-left: 20px;">
+        //         <li>${data.CRN} - Instructor: ${data.instructors} (10/30 regs)</li>
+        //         <li>Class B - Instructor: Zeyad (5/30 regs)</li>
+        //       </ul>
+        //     </td>
+        //     <td>
+        //       <button class="btn">Validate</button>
+        //       <button class="btn">Cancel</button>
+        //     </td>
+        //   </tr>`;
+        let courses = data.map((data) => `
+        <tr>
+             <td>${data.course_name}</td>
             <td>${data.course_code}</td>
             <td>${ (data.course_name == 'open') ? "Open for Registration" : "Pending"}</td>
             <td>
-              <ul style="margin:0; padding-left: 20px;">
-                <li>${data.CRN} - Instructor: $ (10/30 regs)</li>
-                <li>Class B - Instructor: Zeyad (5/30 regs)</li>
-              </ul>
+             <ul style="margin:0; padding-left: 20px;">
+                <li>${data.CRN} - Instructor: ${data.instructor} (${data.actual_seats}/${data.seats} regs)</li>
+               </ul>
             </td>
-            <td>
-              <button class="btn">Validate</button>
-              <button class="btn">Cancel</button>
-            </td>
-          </tr>`;
-    }
+             <td>
+               <button class="btn">Validate</button>
+               <button class="btn">Cancel</button>
+             </td>
+          </tr>`).join(" ");
+      // console.log(courses);
+      
+      courses_List.innerHTML = courses;
+        
+    // }
 }
