@@ -18,9 +18,9 @@ body {
     font-family: Arial,sans-serif;
     margin: 0; 
     padding: 0; 
-    }
+}
 .header {
-  padding: 0px 0px 25px 0px;
+  padding: 0px 0px 15px 0px;
 }
 .container {
   margin: 20px;
@@ -51,10 +51,20 @@ input[type="text"], input[type="number"], select {
   width: 95%;
   padding: 5px;
   margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 input[type="submit"] {
   padding: 7px 15px;
   cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+input[type="submit"]:hover {
+  background-color: #8A1538;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(116, 116, 116);
+
 }
 h2{
     color: var(--Maroon);
@@ -67,17 +77,44 @@ img{
 }
 header{
   color: var(--Maroon);
-  background: #b4b4b47e;
+  background: #8f8f8f73;
   text-align: center;
 }
 button{
-  background-color: whitesmoke;
+  background-color: rgb(224, 224, 224);
   border: 1px solid black;
+  border-radius: 5px;
+
 }
 button:hover{
   background-color: #8A1538;
-  color: whitesmoke;
-  border: 1px solid whitesmoke;
-  box-shadow: 2px 2px black;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(163, 163, 163);
+  box-shadow: 0.5px 0.5px black;
   
+}
+footer{
+  color: white;
+  font-size: 1.2rem;
+  background-color: #8A1538;
+}
+nav ul{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+nav ul li{
+  font-size: 24px;
+  list-style: none;
+  color: var(--Maroon);
+  border: none;
+  padding-bottom: 25px;
+}
+nav ul li a{
+  color: var(--Maroon);
+  text-decoration:none;
+}
+nav ul li :hover{
+  color: rgb(10, 10, 93);
+  font-size: 30px;
 }

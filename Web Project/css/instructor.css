@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Maroon: #8A1538;
+    --Yellow: #e6e600;
+    --Green: #008000;
+    --Red: #ff0000;
+    font-family: "Inter", sans-serif;
+    font-size: var(0.85rem);
+    line-height: 1.8;
+}
+footer{
+    color: white;
+    font-size: 1.2rem;
+    background-color: #8A1538;
+}
+img{
+    width: 12%;
+  }

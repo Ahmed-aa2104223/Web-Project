@@ -42,18 +42,19 @@
                 </div> -->
              </div>
          </section>  
+         <hr>
         <h1>Courses</h1>
         <form action="" id="searching">
             <div class="SeachBar">
                 <input type="search" id="search" placeholder="Search">
-                <button type="submit" class="material-symbols-outlined" id="search_button" >search</button>
+                <!-- <button type="submit" class="material-symbols-outlined" id="search_button" >search</button> -->
                 <button class="btn" id="btnName" value="active" >Name</button>
                 <button class="btn" id="btnCategory">Category</button>
             </div>
             <div class="buttoms">
-                <button onclick="FilterGreen()" class="dotGreen" id="GButtom"></button>
-                <button class="dotYellow" id="YButtom"></button>
-                <button class="dotRed" id="RButtom"></button>
+                <button onclick="FilterGreen()" class="dot" id="GButtom"></button>
+                <button onclick="FilterYellow()" class="dot" id="YButtom"></button>
+                <button onclick="FilterRed()" class="dot" id="RButtom"></button>
             </div>
         </form>
         <section class="courses" id="courses">

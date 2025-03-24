@@ -21,9 +21,6 @@ const Rbuttom = document.querySelector("#RButtom");
 
 // const registerlink = document.querySelector("#registerlink");
 
-//event listeners
-searchButton.addEventListener("submit",searching)
-
 
 
 // functions
@@ -31,10 +28,18 @@ read();
 retrieve();
 
 //Filter Buttoms
-// Gbuttom.addEventListener("click", function(e){
-//     e.preventDefault();
+Gbuttom.addEventListener("click", function(e){
+    e.preventDefault();
 
-// })
+})
+Ybuttom.addEventListener("click", function(e){
+    e.preventDefault();
+
+})
+Rbuttom.addEventListener("click", function(e){
+    e.preventDefault();
+
+})
 
 // BUTTONS
 btnName.addEventListener("click", function(e){
@@ -119,9 +124,9 @@ function calculateGPA(courses) {
     return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "N/A";
 }
 
-// searching
 
-async function searching(e){
+// searching
+search.onkeyup =  async function(e){
     e.preventDefault();
     const response = await fetch('../data/courses.json');
     const data = await response.json();
