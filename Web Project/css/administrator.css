@@ -20,10 +20,7 @@ body {
     padding: 0; 
     }
 .header {
-    color: var(--Maroon);
-  background: #b4b4b47e;
-  padding: 15px;
-  text-align: center;
+  padding: 0px 0px 25px 0px;
 }
 .container {
   margin: 20px;
@@ -64,4 +61,23 @@ h2{
 }
 ul{
     list-style: none;
+}
+img{
+  width: 12%;
+}
+header{
+  color: var(--Maroon);
+  background: #b4b4b47e;
+  text-align: center;
+}
+button{
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+button:hover{
+  background-color: #8A1538;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  box-shadow: 2px 2px black;
+  
 }
