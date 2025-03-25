@@ -5,9 +5,9 @@
 }
 :root{
     --Maroon: #8A1538;
-    --Yellow: #ffff00;
+    --Yellow: #cbd600;
     --Green: #008000;
-    --Red: #ff0000;
+    --Red: #bc0000;
     font-family: "Inter", sans-serif;
     font-size: var(0.85rem);
     line-height: 1.8;
@@ -195,7 +195,7 @@ h1{
 .courses{
     background-color: rgb(240, 235, 235);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 0.2fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     border-radius: 0.2rem;
     gap: 4rem;
     justify-content: center;
@@ -221,6 +221,10 @@ h1{
     overflow-y: auto;
     box-shadow: 0px 0px 1px 1px var(--Maroon);
 
+}
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 20px var(--Maroon);
 }
 
 .card li{

@@ -31,6 +31,7 @@ main{
     grid-area: main;
     width: 100%;
     margin-top: 5%;
+    padding-bottom: 5%;
 }
 footer{
     grid-area: footer;
@@ -52,9 +53,11 @@ header img{
 }
 #email input{
     width: 70%;
+    height: 40px;
     border: none;
     box-shadow: 2px 2px 30px 5px var(--Maroon);
     padding-top: 0.2rem;
+    border-radius: 5px;
 }
 #email div{
     display: flex;
@@ -74,12 +77,16 @@ header img{
     flex-direction: row;
     gap: 1rem;
     justify-content: center;
+
 }
 #password input{
     width: 70%;
+    height: 40px;
     border: none;
     box-shadow: 0px 0px 30px 5px var(--Maroon);
     padding-top: 0.2rem;
+    border-radius: 5px;
+
 }
 #buttom{
     padding: 1rem;
@@ -92,7 +99,6 @@ header img{
     border: 1px solid white;
     width: 60%;
 }
-
 form{
     display: flex;
     flex-direction: column;
