@@ -84,8 +84,8 @@ async function retrieve(){
 function renderInfo(course){
     let colourFinder;
     if(!course.course_name == ""){
-        if(course.status == "var(--Green)")
-            colourFinder = "green";
+        if(course.status == "Completed")
+            colourFinder = "var(--Green)";
         if (course.status == "In-progress")
             colourFinder = "var(--Yellow)";
         if (course.status == "Pending") 
