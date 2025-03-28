@@ -19,12 +19,21 @@
         </ul>
     </nav>
     <main>
+
         <div class="name" id="name">
             <!-- <h2>name</h2> for css purposes
             <h2>GPA</h2> --> 
         </div>
+        <div id="learnpath">
+        <h1>Learning Path</h1>
         <section class="student-course">
             <h2>Student Courses</h2>
+            <div class="buttoms">
+                <button class="dot" id="GButtom"></button>
+                <button class="dot" id="YButtom"></button>
+                <button class="dot" id="RButtom"></button>
+                <button class="dot" id="WButtom"></button>
+            </div>
             <div class="course-info">
                 <h2>Course Code</h2>
                 <h2>Course Name</h2>
@@ -41,30 +50,35 @@
                     <h4 class="grade-course">A</h4>
                 </div> -->
              </div>
+             <button id="allcoursesbuttom" class="buttomInput"> All Courses</button>
+
          </section>  
-         <hr>
-        <h1>Courses</h1>
-        <form action="" id="searching">
-            <div class="SeachBar">
+        </div>
+         <!-- <hr> -->
+        <div id="courses_contanier">
+            <h1>Courses</h1>
+            <form action="" id="searching">
                 <input type="search" id="search" placeholder="Search">
-                <!-- <button type="submit" class="material-symbols-outlined" id="search_button" >search</button> -->
-                <button class="btn" id="btnName" value="active" >Name</button>
-                <button class="btn" id="btnCategory">Category</button>
-            </div>
-            <div class="buttoms">
-                <button onclick="FilterGreen()" class="dot" id="GButtom"></button>
-                <button onclick="FilterYellow()" class="dot" id="YButtom"></button>
-                <button onclick="FilterRed()" class="dot" id="RButtom"></button>
-            </div>
-        </form>
-        <section class="courses" id="courses">
-            <!-- <div class="card">  // for css purposes
-                <h2>CMPS 151</h2>
-                <p>Programming Concept</p>
-                <p>3 credits</p>
-                <p>No prerequiste needed</p>
-            </div> -->
-        </section>
+                <button id="learning_path" class="buttomInput"> Learning Path</button>
+
+                <!-- <div class="SeachBar">
+                    <input type="search" id="search" placeholder="Search">
+                    <button type="submit" class="material-symbols-outlined" id="search_button" >search</button>
+                     <button class="btn" id="btnName" value="active" >Name</button>
+                    <button class="btn" id="btnCategory">Category</button>
+                </div>  -->
+            </form>
+
+            <section class="courses" id="courses">
+
+                <!-- <div class="card">  // for css purposes
+                    <h2>CMPS 151</h2>
+                    <p>Programming Concept</p>
+                    <p>3 credits</p>
+                    <p>No prerequiste needed</p>
+                </div> -->
+            </section>
+        </div>
     </main>
     <footer>&copy all the copy rights is for Qatar University 2025</footer>
     <script src="../js/student.js"></script>

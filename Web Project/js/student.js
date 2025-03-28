@@ -17,6 +17,16 @@ const studentinfo = document.querySelector("#name");
 const Gbuttom = document.querySelector("#GButtom");
 const Ybuttom = document.querySelector("#YButtom");
 const Rbuttom = document.querySelector("#RButtom");
+const Wbuttom = document.querySelector("#WButtom");
+
+
+const allCourses_buttom = document.querySelector("#allcoursesbuttom");
+const learn_path_buttom = document.querySelector("#learning_path");
+const course_continer = document.querySelector("#courses_contanier");
+const learn_path = document.querySelector("#learnpath");
+
+
+
 
 
 // const registerlink = document.querySelector("#registerlink");
@@ -26,33 +36,113 @@ const Rbuttom = document.querySelector("#RButtom");
 // functions
 read();
 retrieve();
+//
+allCourses_buttom.addEventListener("click", function(e){
+    e.preventDefault();
+    learn_path.style.display = "none";
+    course_continer.style.display = "contents"
+})
+learn_path_buttom.addEventListener("click", function(e){
+    e.preventDefault();
+    course_continer.style.display = "none";
+    learn_path.style.display = "contents"
+})
+
 
 //Filter Buttoms
-Gbuttom.addEventListener("click", function(e){
+Gbuttom.addEventListener("click", async function(e){
     e.preventDefault();
+    Gbuttom.style.width = "50px"
+    Ybuttom.style.width = "35px"
+    Rbuttom.style.width = "35px"
+    Gbuttom.style.backgroundColor = "var(--Green)"
+    Ybuttom.style.backgroundColor = "#a2aa00";
+    Rbuttom.style.backgroundColor = "#4d0000";
+    filtered = students.find((element) => element.email.toLowerCase() === email);
+    const response2 = await fetch('../data/courses.json');
+    const data2 = await response2.json();
+        insertion.innerHTML = ""
+    filtered.courses.forEach((e) => {
+        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo.status = e.status;
+        courseInfo.grade = e.grade;
+        if(courseInfo.status == "Completed")
+        insertion.innerHTML += renderInfo(courseInfo);
+    });
 
 })
-Ybuttom.addEventListener("click", function(e){
+Ybuttom.addEventListener("click", async function(e){
     e.preventDefault();
-
+    Ybuttom.style.width = "50px"
+    Gbuttom.style.width = "35px"
+    Rbuttom.style.width = "35px"
+    Ybuttom.style.backgroundColor = "var(--Yellow)"
+    Gbuttom.style.backgroundColor = "#003d00";
+    Rbuttom.style.backgroundColor = "#4d0000";
+    filtered = students.find((element) => element.email.toLowerCase() === email);
+    const response2 = await fetch('../data/courses.json');
+    const data2 = await response2.json();
+    insertion.innerHTML = ""
+    filtered.courses.forEach((e) => {
+        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo.status = e.status;
+        courseInfo.grade = e.grade;
+        if(courseInfo.status == "In-progress")
+        insertion.innerHTML += renderInfo(courseInfo);
+    });
 })
-Rbuttom.addEventListener("click", function(e){
+Rbuttom.addEventListener("click", async function(e){
     e.preventDefault();
-
-})
+    Rbuttom.style.width = "50px"
+    Gbuttom.style.width = "35px"
+    Ybuttom.style.width = "35px"
+    Rbuttom.style.backgroundColor = "var(--Red)"
+    Gbuttom.style.backgroundColor = "#003d00";
+    Ybuttom.style.backgroundColor = "#a2aa00";
+    filtered = students.find((element) => element.email.toLowerCase() === email);
+    const response2 = await fetch('../data/courses.json');
+    const data2 = await response2.json();
+    insertion.innerHTML = ""
+    filtered.courses.forEach((e) => {
+        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo.status = e.status;
+        courseInfo.grade = e.grade;
+        if(courseInfo.status == "Pending")
+        insertion.innerHTML += renderInfo(courseInfo);
+    });
+});
+Wbuttom.addEventListener("click", async function(e){
+    e.preventDefault();
+    Rbuttom.style.width = "35px"
+    Gbuttom.style.width = "35px"
+    Ybuttom.style.width = "35px"
+    Rbuttom.style.backgroundColor = "#bc0000"
+    Gbuttom.style.backgroundColor = "#008000";
+    Ybuttom.style.backgroundColor = "#cbd600";
+    filtered = students.find((element) => element.email.toLowerCase() === email);
+    const response2 = await fetch('../data/courses.json');
+    const data2 = await response2.json();
+    insertion.innerHTML = ""
+    filtered.courses.forEach((e) => {
+        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo.status = e.status;
+        courseInfo.grade = e.grade;
+        insertion.innerHTML += renderInfo(courseInfo);
+    });
+});
 
 // BUTTONS
-btnName.addEventListener("click", function(e){
-    e.preventDefault();
-    btnName.value = "active"
-    btnCategory.value = ""
-})
+// btnName.addEventListener("click", function(e){
+//     e.preventDefault();
+//     btnName.value = "active"
+//     btnCategory.value = ""
+// })
 
-btnCategory.addEventListener("click", function(e){
-    e.preventDefault();
-    btnName.value = ""
-    btnCategory.value = "active"
-})
+// btnCategory.addEventListener("click", function(e){
+//     e.preventDefault();
+//     btnName.value = ""
+//     btnCategory.value = "active"
+// })
 
 // retrieving student info
 async function retrieve(){  
@@ -131,10 +221,12 @@ search.onkeyup =  async function(e){
     const response = await fetch('../data/courses.json');
     const data = await response.json();
     value = search.value.toLowerCase();
-    if(btnName.value === "active")
-        filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value));
-    if(btnCategory.value === "active")
-        filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
+    filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
+
+    // if(btnName.value === "active")
+    //     filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
+    // if(btnCategory.value === "active")
+    //     filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
 
     courses.innerHTML = "";
     

@@ -11,6 +11,7 @@
     font-family: "Inter", sans-serif;
     font-size: var(0.85rem);
     line-height: 1.8;
+
 }
 
 .container{
@@ -113,6 +114,7 @@ main form{
 #GButtom{
     background-color: var(--Green);
 }
+
 #YButtom{
     background-color: var(--Yellow);
 }
@@ -125,21 +127,26 @@ main form{
     display: flex;
     justify-content: space-around;
     width: 20%;
-    max-width: 150px;
+    max-width: 200px;
+    justify-self: center;
+    padding: 1% 0%;
 }
-.SeachBar{
+/* .SeachBar{
     display: grid;
     grid-template-columns: 10fr 1fr 1fr 1fr;
     font-size: 1.5rem;
     color: var(--Maroon);
-}
+} */
 #search{
     border: 2px solid var(--Maroon);
     border-radius: 5px;
     font-weight: 500px;
-    margin-right: 5%;
     padding: 10px 5%;
+    width: 80%;
+    height: 40px;
+
 }
+
 
 /* #search_button{
     justify-self: start;
@@ -208,8 +215,6 @@ h1{
     
 }
 
-
-
 .card{
     align-items: center;
     background-color: white;
@@ -251,7 +256,22 @@ hr{
     margin-bottom: 2%;
 }
 
-
+main #courses_contanier{
+    display: none;
+}
+.buttomInput{
+    border: 2px solid var(--Maroon);
+    width: 10rem;
+    height: 40px;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 2%;
+}
+.buttomInput:hover{
+    background-color: var(--Maroon);
+    color: whitesmoke;
+}
 
 @media screen and (max-width: 900px){
     .container{
