@@ -143,7 +143,10 @@ Wbuttom.addEventListener("click", async function(e){
 //     btnName.value = ""
 //     btnCategory.value = "active"
 // })
-
+//Fetch Student Info
+async function FetchStudent() {
+    
+}
 // retrieving student info
 async function retrieve(){  
     filtered = students.find((element) => element.email.toLowerCase() === email);
@@ -215,40 +218,18 @@ function calculateGPA(courses) {
 }
 
 
-// searching
-search.onkeyup =  async function(e){
-    e.preventDefault();
-    const response = await fetch('../data/courses.json');
-    const data = await response.json();
-    value = search.value.toLowerCase();
-    filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
-
-    // if(btnName.value === "active")
-    //     filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
-    // if(btnCategory.value === "active")
-    //     filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
-
-    courses.innerHTML = "";
-    
-    filtered.map((element) => {
-        if(element.prerequisite == null && element.concurrent_prerequisite)
-            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
-        else if(element.prerequisite == null )
-            element.prerequisite = "No prerequisite is needed"
-        else if(element.prerequisite.includes(""))
-            element.prerequisite = `Prerequisite: ${element.prerequisite}`
-        else
-            element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
-    })
-
-    filtered.forEach(element => {
-        courses.innerHTML += renderCourses(element);
-    });
-}
 
 
+
+
+
+
+
+
+
+
+//------------------------All courses-----------------------------
 // reading and rendering
-
 async function read(){
     const response = await fetch('../data/courses.json');
     const data = await response.json();
@@ -278,4 +259,35 @@ function renderCourses(data){
                     <p>${data.prerequisite}</p>
                 </div>`;
     }
+}
+
+// searching
+search.onkeyup =  async function(e){
+    e.preventDefault();
+    const response = await fetch('../data/courses.json');
+    const data = await response.json();
+    value = search.value.toLowerCase();
+    filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
+
+    // if(btnName.value === "active")
+    //     filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
+    // if(btnCategory.value === "active")
+    //     filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
+
+    courses.innerHTML = "";
+    
+    filtered.map((element) => {
+        if(element.prerequisite == null && element.concurrent_prerequisite)
+            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
+        else if(element.prerequisite == null )
+            element.prerequisite = "No prerequisite is needed"
+        else if(element.prerequisite.includes(""))
+            element.prerequisite = `Prerequisite: ${element.prerequisite}`
+        else
+            element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
+    })
+
+    filtered.forEach(element => {
+        courses.innerHTML += renderCourses(element);
+    });
 }
