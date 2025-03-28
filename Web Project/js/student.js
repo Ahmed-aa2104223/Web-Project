@@ -58,17 +58,8 @@ Gbuttom.addEventListener("click", async function(e){
     Gbuttom.style.backgroundColor = "var(--Green)"
     Ybuttom.style.backgroundColor = "#a2aa00";
     Rbuttom.style.backgroundColor = "#4d0000";
-    filtered = students.find((element) => element.email.toLowerCase() === email);
-    const response2 = await fetch('../data/courses.json');
-    const data2 = await response2.json();
-        insertion.innerHTML = ""
-    filtered.courses.forEach((e) => {
-        courseInfo = data2.find((element) => element.course_code === e.course_code);
-        courseInfo.status = e.status;
-        courseInfo.grade = e.grade;
-        if(courseInfo.status == "Completed")
-        insertion.innerHTML += renderInfo(courseInfo);
-    });
+    Wbuttom.style.backgroundColor = "#494949"
+    retrieveColor("Completed");
 
 })
 Ybuttom.addEventListener("click", async function(e){
@@ -79,17 +70,8 @@ Ybuttom.addEventListener("click", async function(e){
     Ybuttom.style.backgroundColor = "var(--Yellow)"
     Gbuttom.style.backgroundColor = "#003d00";
     Rbuttom.style.backgroundColor = "#4d0000";
-    filtered = students.find((element) => element.email.toLowerCase() === email);
-    const response2 = await fetch('../data/courses.json');
-    const data2 = await response2.json();
-    insertion.innerHTML = ""
-    filtered.courses.forEach((e) => {
-        courseInfo = data2.find((element) => element.course_code === e.course_code);
-        courseInfo.status = e.status;
-        courseInfo.grade = e.grade;
-        if(courseInfo.status == "In-progress")
-        insertion.innerHTML += renderInfo(courseInfo);
-    });
+    Wbuttom.style.backgroundColor = "#494949"
+    retrieveColor("In-progress");
 })
 Rbuttom.addEventListener("click", async function(e){
     e.preventDefault();
@@ -99,23 +81,15 @@ Rbuttom.addEventListener("click", async function(e){
     Rbuttom.style.backgroundColor = "var(--Red)"
     Gbuttom.style.backgroundColor = "#003d00";
     Ybuttom.style.backgroundColor = "#a2aa00";
-    filtered = students.find((element) => element.email.toLowerCase() === email);
-    const response2 = await fetch('../data/courses.json');
-    const data2 = await response2.json();
-    insertion.innerHTML = ""
-    filtered.courses.forEach((e) => {
-        courseInfo = data2.find((element) => element.course_code === e.course_code);
-        courseInfo.status = e.status;
-        courseInfo.grade = e.grade;
-        if(courseInfo.status == "Pending")
-        insertion.innerHTML += renderInfo(courseInfo);
-    });
+    Wbuttom.style.backgroundColor = "#494949"
+    retrieveColor("Pending");
 });
 Wbuttom.addEventListener("click", async function(e){
     e.preventDefault();
     Rbuttom.style.width = "35px"
     Gbuttom.style.width = "35px"
     Ybuttom.style.width = "35px"
+    Wbuttom.style.backgroundColor = "#ffffff21"
     Rbuttom.style.backgroundColor = "#bc0000"
     Gbuttom.style.backgroundColor = "#008000";
     Ybuttom.style.backgroundColor = "#cbd600";
@@ -143,10 +117,25 @@ Wbuttom.addEventListener("click", async function(e){
 //     btnName.value = ""
 //     btnCategory.value = "active"
 // })
-//Fetch Student Info
-async function FetchStudent() {
-    
-}
+
+async function retrieveColor(Color){ 
+    filtered = students.find((element) => element.email.toLowerCase() === email);
+    const response2 = await fetch('../data/courses.json');
+    const data2 = await response2.json();
+        insertion.innerHTML = ""
+    filtered.courses.forEach((e) => {
+        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo.status = e.status;
+        courseInfo.grade = e.grade;
+        if(courseInfo.status == Color)
+        insertion.innerHTML += renderInfo(courseInfo);
+    });
+ }
+
+
+
+
+
 // retrieving student info
 async function retrieve(){  
     filtered = students.find((element) => element.email.toLowerCase() === email);
