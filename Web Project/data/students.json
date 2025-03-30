@@ -16,6 +16,18 @@
                 "CRN" : "20231",
                 "grade" : "N/A",
                 "status" : "Pending"
+            },
+            {
+                "course_code" : "CMPS 493",
+                "CRN" : "20493",
+                "grade" : "B",
+                "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 405",
+            "CRN" : "20405",
+            "grade" : "C",
+            "status" : "Completed"
             }
         ]   
     },
