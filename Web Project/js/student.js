@@ -280,3 +280,10 @@ search.onkeyup =  async function(e){
         courses.innerHTML += renderCourses(element);
     });
 }
+
+/*didn't want to alter the above the code in case we needed it as is,
+but this essentially makes sure that we show all courses offered by default*/
+document.addEventListener("DOMContentLoaded", function(){
+    course_continer.style.display = "contents"; 
+    learn_path.style.display = "none";
+});
