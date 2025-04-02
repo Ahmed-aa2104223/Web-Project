@@ -5,9 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administrators</title>
   <link rel="stylesheet" href="../css/administrator.css">
+  <style>
+    /* Example inline styles to stack filter dropdowns vertically */
+    .filter-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .filter-group label {
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+    .filter-group select {
+      padding: 0.3rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <!--  -->
   <header>
     <img src="../img/QU-logo-removebg.png" alt="Qatar University Logo">
     <div class="header">
@@ -22,9 +44,31 @@
   </header>
   <main>
     <div class="container">
-
       <div class="section">
         <h2>Current Courses</h2>
+        <!-- New Filter Container (stacked vertically) -->
+        <div class="filter-container">
+          <div class="filter-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" name="categoryFilter">
+              <option value="all">All</option>
+              <option value="Databases">Databases</option>
+              <option value="Programming">Programming</option>
+              <option value="Natural Science">Natural Science</option>
+              <option value="Common Package">Common Package</option>
+              <option value="Major Electives">Major Electives</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter" name="statusFilter">
+              <option value="all">All</option>
+              <option value="Open for Registration">Open for Registration</option>
+              <option value="Pending">Pending</option>
+              <option value="Validated">Validated</option>
+            </select>
+          </div>
+        </div>
         <table>
           <thead>
             <tr>
@@ -36,29 +80,11 @@
             </tr>
           </thead>
           <tbody id="courses">
-  
-            <!-- <tr>
-              <td>CMPS151</td>
-              <td>Programming</td>
-              <td>Open for Registration</td>
-              <td>
-                <ul style="margin:0; padding-left: 20px;">
-                  <li>Class A - Instructor: Mohammed (10/30 regs)</li>
-                  <li>Class B - Instructor: Zeyad (5/30 regs)</li>
-                </ul>
-              </td>
-              <td>
-                <button class="btn">Validate</button>
-                <button class="btn">Cancel</button>
-              </td>
-            </tr> -->
-            
-  
+            <!-- Dynamic content populated by admin.js -->
           </tbody>
         </table>
         <p style="font-size: 0.9em;">* Courses are shown with their status and classes. Only validated classes can start.</p>
       </div>
-  
   
       <div class="section">
         <h2>Create New Course</h2>
@@ -66,12 +92,21 @@
           <label for="courseName">Course Name:</label><br>
           <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required><br><br>
           
+          <label for="courseCode">Course Code:</label><br>
+          <input type="text" id="courseCode" name="courseCode" placeholder="Enter course code" required><br><br>
+          
+          <label for="courseHours">Credit Hours:</label><br>
+          <input type="text" id="courseHours" name="courseHours" placeholder="Enter credit hours" required><br><br>
+          
+          <label for="prerequisite">Prerequisite:</label><br>
+          <input type="text" id="prerequisite" name="prerequisite" placeholder="Enter prerequisite (if any)"><br><br>
+          
+          <label for="concurrentPrerequisite">Concurrent Prerequisite:</label><br>
+          <input type="text" id="concurrentPrerequisite" name="concurrentPrerequisite" placeholder="Enter concurrent prerequisite (if any)"><br><br>
+          
           <label for="courseCategory">Category:</label><br>
           <input type="text" id="courseCategory" name="courseCategory" placeholder="e.g., Programming, Databases" required><br><br>
   
-          <label for="courseCategory">Credit Hours:</label><br>
-          <input type="text" id="courseHours" name="courseHours" placeholder="3 credits" required><br><br>
-          
           <label for="courseStatus">Status:</label><br>
           <select id="courseStatus" name="courseStatus">
             <option value="open">Open for Registration</option>
@@ -82,16 +117,14 @@
         </form>
       </div>
   
-  
       <div class="section">
         <h2>Create New Class</h2>
         <form id="newClassForm">
-          <label for="classCourse">Select Course:</label><br>
-          <select id="classCourse" name="classCourse">
-            <option value="">--Select Course--</option>
-            <option value="introToProgramming">Programming Concepts</option>
-  
-          </select><br><br>
+          <label for="courseCodeInput">Course Code:</label><br>
+          <input type="text" id="courseCodeInput" name="courseCodeInput" placeholder="Enter course code" required><br><br>
+          
+          <label for="crnInput">CRN:</label><br>
+          <input type="text" id="crnInput" name="crnInput" placeholder="Enter CRN" required><br><br>
           
           <label for="instructorName">Instructor Name:</label><br>
           <input type="text" id="instructorName" name="instructorName" placeholder="Enter instructor name" required><br><br>
@@ -106,7 +139,6 @@
     <script src="../js/admin.js"></script>
   </main>
   
-  <footer>&copy all the copy rights is for Qatar University 2025</footer>
-
+  <footer>&copy; all the copy rights is for Qatar University 2025</footer>
 </body>
 </html>

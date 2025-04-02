@@ -5,18 +5,44 @@ const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const courses = JSON.parse(localStorage.getItem("courses"));
 const course = JSON.parse(localStorage.getItem("courseJSON")); // classes info (if any)
 
+// Global filter variables; default is "all"
+let selectedCategory = "all";
+let selectedStatus = "all";
+
 // Select DOM elements
 const course_form = document.querySelector("#newCourseForm");
 const course_name = document.querySelector("#courseName");
-const course_category = document.querySelector("#courseCategory");
+const course_code = document.querySelector("#courseCode");
 const course_hours = document.querySelector("#courseHours");
+const prerequisite = document.querySelector("#prerequisite");
+const concurrentPrerequisite = document.querySelector("#concurrentPrerequisite");
+const course_category = document.querySelector("#courseCategory");
 const course_status = document.querySelector("#courseStatus");
 const courses_List = document.querySelector("#courses");
 
 const class_form = document.querySelector("#newClassForm");
-const class_course = document.querySelector("#classCourse");
+const courseCodeInput = document.querySelector("#courseCodeInput"); // text input for course code
+const crnInput = document.querySelector("#crnInput"); // text input for CRN
 const instructorName = document.querySelector("#instructorName");
 const maxRegistrations = document.querySelector("#maxRegistrations");
+
+// Listen for changes in the category filter
+const categoryFilter = document.querySelector("#categoryFilter");
+if (categoryFilter) {
+    categoryFilter.addEventListener("change", function(e) {
+        selectedCategory = e.target.value;
+        read();
+    });
+}
+
+// Listen for changes in the status filter
+const statusFilter = document.querySelector("#statusFilter");
+if (statusFilter) {
+    statusFilter.addEventListener("change", function(e) {
+        selectedStatus = e.target.value;
+        read();
+    });
+}
 
 // Initial read to render the courses table
 read();
@@ -35,18 +61,20 @@ function create_course(e) {
     e.preventDefault();
     // Get form values
     const name = course_name.value.trim();
-    const category = course_category.value.trim();
+    const code = course_code.value.trim();
     const hours = course_hours.value.trim();
+    const preq = prerequisite.value.trim() || null;
+    const concPreq = concurrentPrerequisite.value.trim() || null;
+    const category = course_category.value.trim();
     const statusVal = course_status.value; // "open" or "pending"
-
-    // Generate a unique course code using current timestamp
-    const course_code = "COURSE" + Date.now();
 
     // Create a new course object
     const newCourse = {
-        course_code: course_code,
         course_name: name,
+        course_code: code,
         credit_hour: hours,
+        prerequisite: preq,
+        concurrent_prerequisite: concPreq,
         category: category,
         status: statusVal
     };
@@ -55,42 +83,37 @@ function create_course(e) {
     courses.push(newCourse);
     localStorage.setItem("courses", JSON.stringify(courses));
 
-    // Update the dropdown in the newClassForm with the new course
-    let option = document.createElement("option");
-    option.value = course_code;
-    option.textContent = name;
-    class_course.appendChild(option);
-
     // Clear the form fields
     course_name.value = "";
-    course_category.value = "";
+    course_code.value = "";
     course_hours.value = "";
+    prerequisite.value = "";
+    concurrentPrerequisite.value = "";
+    course_category.value = "";
     course_status.value = "open";
 
     console.log("New course created: " + name);
-    // Optionally, you could call read() if the courses table needs to update based on courses.
+    // Optionally, call read() if the courses table should update
 }
 
 // Create a new class (registration record) from the newClassForm
 function create_class(e) {
     e.preventDefault();
-    // Get form values
-    const selectedCourse = class_course.value;
+    // Get form values from text inputs
+    const code = courseCodeInput.value.trim();
+    const crn = crnInput.value.trim();
     const instructor = instructorName.value.trim();
     const maxRegs = parseInt(maxRegistrations.value);
 
-    if (!selectedCourse) {
-        console.log("Please select a course.");
+    if (!code || !crn) {
+        console.log("Please enter both course code and CRN.");
         return;
     }
 
-    // Generate a unique CRN using current timestamp
-    const newCRN = Date.now();
-
     // Create a new registration record for the class
     const newClass = {
-        CRN: newCRN,
-        course_code: selectedCourse,
+        CRN: crn, // use the entered CRN
+        course_code: code,
         instructor: instructor,
         seats: maxRegs,
         status: "pending" // default status for new classes
@@ -101,12 +124,13 @@ function create_class(e) {
     localStorage.setItem("registration", JSON.stringify(registration));
 
     // Clear the form fields
-    class_course.value = "";
+    courseCodeInput.value = "";
+    crnInput.value = "";
     instructorName.value = "";
     maxRegistrations.value = "";
 
     read(); // re-render the courses table
-    console.log("New class created for course " + selectedCourse);
+    console.log("New class created for course " + code);
 }
 
 // Handle click events for Validate/Cancel buttons using event delegation
@@ -168,7 +192,17 @@ async function read() {
     });
 
     // Group registration records by course_code
-    const grouped = groupByCourse(list);
+    let grouped = groupByCourse(list);
+
+    // Apply category filter if a category is selected (other than "all")
+    if (selectedCategory && selectedCategory.toLowerCase() !== "all") {
+        for (let key in grouped) {
+            if (grouped[key].length > 0 && grouped[key][0].category.toLowerCase() !== selectedCategory.toLowerCase()) {
+                delete grouped[key];
+            }
+        }
+    }
+
     renderGroupedCourses(grouped);
 }
 
@@ -190,37 +224,51 @@ function groupByCourse(list) {
 // Render the grouped courses in the table
 function renderGroupedCourses(grouped) {
     let html = "";
-    // Iterate over each group (course)
+    // Iterate over each course group
     for (let course_code in grouped) {
         let records = grouped[course_code];
-        // Get course info from the first record in the group
+        // Filter records based on the selected status (if not "all")
+        let filteredRecords = (selectedStatus.toLowerCase() === "all") 
+            ? records 
+            : records.filter(r => r.status.toLowerCase() === selectedStatus.toLowerCase());
+        // If no class in this course matches the status filter, skip it
+        if (filteredRecords.length === 0) continue;
+        
+        // Get course info from the first record (same for all in the group)
         let courseName = records[0].course_name || "";
         let category = records[0].category || "";
-
-        // Determine overall status for the course
-        let overallStatus = "Pending";
-        if (records.some(r => r.status === "validated")) {
-            overallStatus = "Validated";
-        } else if (records.every(r => r.status === "open")) {
-            overallStatus = "Open for Registration";
+        
+        // Determine overall status:
+        // If filtering by status, use that filter value;
+        // otherwise, compute overall status from all records in the group.
+        let overallStatus;
+        if (selectedStatus.toLowerCase() !== "all") {
+            overallStatus = selectedStatus;
+        } else {
+            if (records.some(r => r.status.toLowerCase() === "validated")) {
+                overallStatus = "Validated";
+            } else if (records.every(r => r.status.toLowerCase() === "open")) {
+                overallStatus = "Open for Registration";
+            } else {
+                overallStatus = "Pending";
+            }
         }
-
-        // Build the list of class details for this course
-        let classList = records.map(r => `
+        
+        // Build lists using only the filtered records
+        let classList = filteredRecords.map(r => `
             <li>
                 CRN: ${r.CRN} - Instructor: ${r.instructor} (${r.actual_seats}/${r.seats} regs) - Status: ${r.status}
             </li>
         `).join("");
-
-        // Build the list of action buttons for each class
-        let actionList = records.map(r => `
+        
+        let actionList = filteredRecords.map(r => `
             <li>
                 <button class="btn validate-btn" data-crn="${r.CRN}">Validate</button>
                 <button class="btn cancel-btn" data-crn="${r.CRN}">Cancel</button>
             </li>
         `).join("");
-
-        // Render one row per course
+        
+        // Render one row per course group with only the filtered classes
         html += `
             <tr>
                 <td>${courseName}</td>
@@ -243,3 +291,4 @@ function renderGroupedCourses(grouped) {
     }
     courses_List.innerHTML = html;
 }
+
