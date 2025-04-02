@@ -251,35 +251,37 @@ function renderCourses(data){
 }
 
 // searching
-search.onkeyup =  async function(e){
+// searching
+search.onkeyup = async function(e){
     e.preventDefault();
     const response = await fetch('../data/courses.json');
     const data = await response.json();
-    value = search.value.toLowerCase();
-    filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
-
-    // if(btnName.value === "active")
-    //     filtered = data.filter( (element) => element.course_name.toLowerCase().includes(value) || element.course_code.toLowerCase().includes(value));
-    // if(btnCategory.value === "active")
-    //     filtered = data.filter( (element) => element.course_code.toLowerCase().includes(value));
+    const value = search.value.toLowerCase();
+    // Filter courses by name, course code, or category
+    const filtered = data.filter(element => 
+        element.course_name.toLowerCase().includes(value) ||
+        element.course_code.toLowerCase().includes(value) ||
+        (element.category && element.category.toLowerCase().includes(value))
+    );
 
     courses.innerHTML = "";
     
-    filtered.map((element) => {
+    filtered.map(element => {
         if(element.prerequisite == null && element.concurrent_prerequisite)
-            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
-        else if(element.prerequisite == null )
-            element.prerequisite = "No prerequisite is needed"
-        else if(element.prerequisite.includes(""))
-            element.prerequisite = `Prerequisite: ${element.prerequisite}`
-        else
+            element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `;
+        else if(element.prerequisite == null)
+            element.prerequisite = "No prerequisite is needed";
+        else if(typeof element.prerequisite === "string" && element.prerequisite.includes(""))
+            element.prerequisite = `Prerequisite: ${element.prerequisite}`;
+        else if(Array.isArray(element.prerequisite))
             element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
-    })
+    });
 
     filtered.forEach(element => {
         courses.innerHTML += renderCourses(element);
     });
 }
+
 
 /*didn't want to alter the above the code in case we needed it as is,
 but this essentially makes sure that we show all courses offered by default*/
