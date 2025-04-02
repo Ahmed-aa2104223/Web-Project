@@ -28,6 +28,18 @@
             "CRN" : "20405",
             "grade" : "C",
             "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 303",
+            "CRN" : "20406",
+            "grade" : "A",
+            "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 205",
+            "CRN" : "20407",
+            "grade" : "C",
+            "status" : "Completed"
             }
         ]   
     },
