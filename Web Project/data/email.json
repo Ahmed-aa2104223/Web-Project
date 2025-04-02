@@ -18,7 +18,13 @@
         "email" : "mohammed@qu.edu.qa",
         "password" : "mohd",
         "state" : "instructor"
-    },{
+    },
+    {
+        "email" : "yuri@qu.edu.qa",
+        "password" : "yuri",
+        "state" : "instructor"
+    },
+    {
         "email" : "admin@qu.edu.qa",
         "password" : "admin",
         "state" : "administrator"

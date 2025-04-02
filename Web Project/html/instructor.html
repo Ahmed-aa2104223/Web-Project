@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructor</title>
-    <link rel="stylesheet" href="../css/instructor.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructor</title>
+  <link rel="stylesheet" href="../css/instructor.css">
+  <style>
+    /* Inline styles for demonstration – move these to your CSS file if preferred */
+    .class-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 5px;
+    }
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .grade-table th, .grade-table td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .grade-table th {
+      background-color: #f2f2f2;
+    }
+    .add-row-btn, .remove-row-btn {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+      margin: 0.2rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="../img/QU-logo-removebg.png" alt="Qatar University Logo">
-    </header>
-    <nav>
-        <ul>
-            <li><a href="../html/login.html">Switch</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h1>Instructor</h1>
-        <div class="name" id="nameinstructor">
-            <!-- Instructor name and expertise will be displayed here -->
-        </div>
-        <h1>My Classes & Grade Submission</h1>
-        <section class="courses" id="courses">
-            <!-- Class cards with grade submission forms will be rendered here -->
-        </section>
-    </main>
-    <footer>&copy all the copy rights is for Qatar University 2025</footer>
-    <script src="../js/instructor.js"></script>
+  <header>
+    <img src="../img/QU-logo-removebg.png" alt="Qatar University Logo">
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../html/login.html">Switch</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Instructor</h1>
+    <div class="name" id="nameinstructor">
+      <!-- Instructor info will be displayed here -->
+    </div>
+    <h1>My Classes & Final Grade Submission</h1>
+    <section class="courses" id="courses">
+      <!-- Class cards will be rendered here -->
+    </section>
+  </main>
+  <footer>&copy; all the copy rights is for Qatar University 2025</footer>
+  <script src="../js/instructor.js"></script>
 </body>
 </html>
