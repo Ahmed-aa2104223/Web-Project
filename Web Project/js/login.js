@@ -2,7 +2,7 @@ let email = [];
 let password = [];
 let state = [];
 
-localStorage.clear() // use this to clear the local storage
+// localStorage.clear() // use this to clear the local storage
 
 init();
 

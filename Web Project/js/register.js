@@ -6,6 +6,7 @@ const registration = JSON.parse(localStorage.getItem("registration"));
 const students = JSON.parse(localStorage.getItem("students"));
 const course = JSON.parse(localStorage.getItem("courseJSON"));
 
+
 // selectors
 const course_list = document.querySelector("#course_list");
 
@@ -23,7 +24,7 @@ function showDialog(message, callback) {
     dialog.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
     dialog.innerHTML = `
         <p>${message}</p>
-        <button id="closeDialog">Close</button>
+        <button id="closeDialog" style="padding :10px">Close</button>
     `;
     document.body.appendChild(dialog);
     dialog.showModal();
@@ -78,8 +79,10 @@ async function register(input) {
     
     // All checks passed; proceed with registration.
     const studentID = students.find(student => student.email == email);
+    
     let newCourse = {
         "course_code": regRecord.course_code,
+        "CRN" : `${CRN}`,
         "grade": "N/A",
         "status": "Pending"
     };

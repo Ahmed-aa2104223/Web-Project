@@ -165,6 +165,7 @@ async function retrieve(){
 // rendering the student information
 function renderInfo(course){
     let colourFinder;
+    let value;
     if(!course.course_name == ""){
         if(course.status == "Completed")
             colourFinder = "var(--Green)";
@@ -172,9 +173,11 @@ function renderInfo(course){
             colourFinder = "var(--Yellow)";
         if (course.status == "Pending") 
             colourFinder = "var(--Red)";
+        if (course.status == "Cancelled") 
+            value = "black";
         
 
-        return ` <div class="card-course">
+        return ` <div class="card-course" value=${value}>
                 <h3>${course.course_code}</h1>
                 <h4 class="card-course-name">${course.course_name}</h4>
                 <h4>${course.credit_hour} CREDITS</h4>

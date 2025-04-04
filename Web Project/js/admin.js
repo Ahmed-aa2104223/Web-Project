@@ -5,6 +5,9 @@ const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const courses = JSON.parse(localStorage.getItem("courses"));
 const course = JSON.parse(localStorage.getItem("courseJSON")); // classes info (if any)
 
+console.log(students);
+
+
 // Global filter variables; default is "all"
 let selectedCategory = "all";
 let selectedStatus = "all";
@@ -145,12 +148,27 @@ function handleCourseAction(e) {
     }
 }
 
+
+function getStudent(crn, status){
+    let instructor = course.find(element => element.CRN = crn);
+    if(instructor != undefined){
+        instructor.students.forEach( element => {
+            student = students.find( e => e.id = element.id)
+            courseStudent = student.courses.find(element => element.CRN === crn);
+            courseStudent.status = status  
+        })
+    }
+    
+}
+
 // Validate a class (update its status to "validated")
 function validateClass(crn) {
     let record = registration.find(rec => rec.CRN == crn);
     if (record) {
         record.status = "validated";
         localStorage.setItem("registration", JSON.stringify(registration));
+        getStudent(record.CRN, "In-progress")
+        localStorage.setItem("students", JSON.stringify(students))
         read();
     }
 }
@@ -161,6 +179,8 @@ function cancelClass(crn) {
     if (record) {
         record.status = "cancelled";
         localStorage.setItem("registration", JSON.stringify(registration));
+        getStudent(record.CRN, "Cancelled")
+        localStorage.setItem("students", JSON.stringify(students))
         read();
     }
 }

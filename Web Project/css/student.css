@@ -103,6 +103,16 @@ main form{
 
 }
 
+.card-course[value="black"]{
+    background-color: #727171;
+    color: rgb(180, 178, 178);
+}
+
+.card-course h4[style="color: black;"]{
+    background-color: #bc0000;
+    color: rgb(180, 178, 178);
+}
+
 .dot {
     height: 25px;
     width: 35px;
