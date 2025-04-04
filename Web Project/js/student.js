@@ -257,11 +257,10 @@ search.onkeyup = async function(e){
     const response = await fetch('../data/courses.json');
     const data = await response.json();
     const value = search.value.toLowerCase();
-    // Filter courses by name, course code, or category
+    // Filter courses by name, course code
     const filtered = data.filter(element => 
         element.course_name.toLowerCase().includes(value) ||
-        element.course_code.toLowerCase().includes(value) ||
-        (element.category && element.category.toLowerCase().includes(value))
+        element.course_code.toLowerCase().includes(value) 
     );
 
     courses.innerHTML = "";
