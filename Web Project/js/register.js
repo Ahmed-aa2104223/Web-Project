@@ -120,7 +120,7 @@ async function isQualified(CRN) {
     const course_code = regRecord.course_code;
     const courseStatus = regRecord.status;
     
-    // Only open courses are allowed.
+    // Only open courses are allowed. 
     if (courseStatus !== "open") {
          return false;
     }
@@ -145,11 +145,11 @@ async function isQualified(CRN) {
     const preq = courseDetails.prerequisite; // may be null, string, or array
     const conpreq = courseDetails.concurrent_prerequisite; // may be null or a string
     
-    // If no prerequisite is specified, check if there is a concurrent prerequisite.
+    // If no prerequisite is specified, check if there is a concurrent prerequisite. Faisal: we dont need to complete the course
     if (!preq) {
          if (conpreq) {
              // Allow registration only if the concurrent course has been passed.
-             if (studentCourses.find(e => e.course_code === conpreq && e.status === "Completed")) {
+             if (studentCourses.find(e => e.course_code === conpreq /*&& e.status === "Completed"*/)) {
                   return true;
              } else {
                   return false;
@@ -160,12 +160,12 @@ async function isQualified(CRN) {
     
     // If prerequisite is a string, ensure the student has passed it.
     if (typeof preq === "string") {
-         return !!studentCourses.find(e => e.course_code === preq && e.status === "Completed");
+         return !!studentCourses.find(e => e.course_code === preq /*&& e.status === "Completed"*/);
     }
     
     // If prerequisite is an array, ensure the student has passed all courses.
     if (Array.isArray(preq)) {
-         let allPassed = preq.every(code => studentCourses.find(e => e.course_code === code && e.status === "Completed"));
+         let allPassed = preq.every(code => studentCourses.find(e => e.course_code === code /*&& e.status === "Completed"*/));
          return allPassed;
     }
     
