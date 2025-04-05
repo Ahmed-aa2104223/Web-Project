@@ -1,9 +1,13 @@
 // Retrieve instructors and registration data from localStorage
 const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const registrationData = JSON.parse(localStorage.getItem("registration")); // using registration.json data
+const course = JSON.parse(localStorage.getItem("courseJSON"));
 
 // Retrieve the logged-in instructor's email from localStorage
 const email = localStorage.getItem("email");
+
+console.log(course);
+
 
 // Select DOM elements
 const instructorInfo = document.querySelector("#nameinstructor");

@@ -150,12 +150,13 @@ function handleCourseAction(e) {
 
 
 function getStudent(crn, status){
-    let instructor = course.find(element => element.CRN = crn);
+    let instructor = course.find(element => element.CRN == crn);
     if(instructor != undefined){
         instructor.students.forEach( element => {
-            student = students.find( e => e.id = element.id)
+            student = students.find( e => e.id == element.id)
             courseStudent = student.courses.find(element => element.CRN === crn);
             courseStudent.status = status  
+            localStorage.setItem("students", JSON.stringify(students))
         })
     }
     
@@ -166,9 +167,7 @@ function validateClass(crn) {
     let record = registration.find(rec => rec.CRN == crn);
     if (record) {
         record.status = "validated";
-        localStorage.setItem("registration", JSON.stringify(registration));
-        getStudent(record.CRN, "In-progress")
-        localStorage.setItem("students", JSON.stringify(students))
+        getStudent(record.CRN, "In-progress")      
         read();
     }
 }
@@ -178,9 +177,7 @@ function cancelClass(crn) {
     let record = registration.find(rec => rec.CRN == crn);
     if (record) {
         record.status = "cancelled";
-        localStorage.setItem("registration", JSON.stringify(registration));
         getStudent(record.CRN, "Cancelled")
-        localStorage.setItem("students", JSON.stringify(students))
         read();
     }
 }

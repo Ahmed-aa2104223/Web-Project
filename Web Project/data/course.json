@@ -43,9 +43,7 @@
         "isntructor_email" : "yuri@qu.edu.qa",
         "CRN" : "20002",
         "students" : [
-            {
-
-            }
+ 
         ]
     },
     {
@@ -53,18 +51,14 @@
         "isntructor_email" : "hussein@qu.edu.qa",
         "CRN" : "20231",
         "students" : [
-            {
-
-            }
+ 
         ]
     },{
         "instructor_name" : "Yousef",
         "isntructor_email" : "yousef@qu.edu.qa",
         "CRN" : "22156",
         "students" : [
-            {
-
-            }
+   
         ]
     }
 ]
