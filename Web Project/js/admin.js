@@ -280,8 +280,8 @@ function renderGroupedCourses(grouped) {
         
         let actionList = filteredRecords.map(r => `
             <li>
-                <button class="btn validate-btn" data-crn="${r.CRN}">Validate</button>
-                <button class="btn cancel-btn" data-crn="${r.CRN}">Cancel</button>
+                <button class="btn validate-btn" data-crn="${r.CRN}" style="background-color:green; color:white">Validate</button>
+                <button class="btn cancel-btn" data-crn="${r.CRN}" style="background-color:red; color:white;">Cancel</button>
             </li>
         `).join("");
         
