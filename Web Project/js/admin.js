@@ -167,7 +167,8 @@ function validateClass(crn) {
     let record = registration.find(rec => rec.CRN == crn);
     if (record) {
         record.status = "validated";
-        getStudent(record.CRN, "In-progress")      
+        getStudent(record.CRN, "In-progress")    
+        localStorage.setItem("registration", JSON.stringify(registration));  
         read();
     }
 }
@@ -178,6 +179,7 @@ function cancelClass(crn) {
     if (record) {
         record.status = "cancelled";
         getStudent(record.CRN, "Cancelled")
+        localStorage.setItem("registration", JSON.stringify(registration));
         read();
     }
 }
@@ -210,11 +212,13 @@ async function read() {
 
     // Group registration records by course_code
     let grouped = groupByCourse(list);
-
+    
+    // console.log(selectedCategory.toLowerCase());
+    
     // Apply category filter if a category is selected (other than "all")
     if (selectedCategory && selectedCategory.toLowerCase() !== "all") {
         for (let key in grouped) {
-            if (grouped[key].length > 0 && grouped[key][0].category.toLowerCase() !== selectedCategory.toLowerCase()) {
+            if (key.length > 0 && key.split(" ")[0].toLowerCase() !== selectedCategory.toLowerCase()) {
                 delete grouped[key];
             }
         }
@@ -244,6 +248,8 @@ function renderGroupedCourses(grouped) {
     // Iterate over each course group
     for (let course_code in grouped) {
         let records = grouped[course_code];
+        
+        
         // Filter records based on the selected status (if not "all")
         let filteredRecords = (selectedStatus.toLowerCase() === "all") 
             ? records 
@@ -253,7 +259,7 @@ function renderGroupedCourses(grouped) {
         
         // Get course info from the first record (same for all in the group)
         let courseName = records[0].course_name || "";
-        let category = records[0].category || "";
+        let category = records[0].course_code.split(" ")[0] || "";
         
         // Determine overall status:
         // If filtering by status, use that filter value;
