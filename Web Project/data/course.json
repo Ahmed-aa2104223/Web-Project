@@ -1,7 +1,7 @@
 [
     {
         "instructor_name" : "Mohammed",
-        "isntructor_email" : "mohammed@qu.edu.qa",
+        "email" : "mohammed@qu.edu.qa",
         "CRN" : "22151",
         "students" : [
 
@@ -9,22 +9,22 @@
     },
     {
         "instructor_name" : "Ahmed",
-        "isntructor_email" : "ahmed@qu.edu.qa",
+        "email" : "ahmed@qu.edu.qa",
         "CRN" : "22152",
         "students" : [
         ]
     },
     {
         "instructor_name" : "Yuri",
-        "isntructor_email" : "yuri@qu.edu.qa",
+        "email" : "yuri@qu.edu.qa",
         "CRN" : "22153",
-        "students" : [
+        "students" : [202205767, 202103425
 
         ]
     },
     {
         "instructor_name" : "Saleh",
-        "isntructor_email" : "saleh@qu.edu.qa",
+        "email" : "saleh@qu.edu.qa",
         "CRN" : "22154",
         "students" : [
 
@@ -32,7 +32,7 @@
     },
     {
         "instructor_name" : "Moutaz",
-        "isntructor_email" : "moutaz@qu.edu.qa",
+        "email" : "moutaz@qu.edu.qa",
         "CRN" : "22155",
         "students" : [
 
@@ -40,7 +40,7 @@
     },
     {
         "instructor_name" : "Yuri",
-        "isntructor_email" : "yuri@qu.edu.qa",
+        "email" : "yuri@qu.edu.qa",
         "CRN" : "20002",
         "students" : [
  
@@ -48,14 +48,14 @@
     },
     {
         "instructor_name" : "Hussein",
-        "isntructor_email" : "hussein@qu.edu.qa",
+        "email" : "hussein@qu.edu.qa",
         "CRN" : "20231",
         "students" : [
  
         ]
     },{
         "instructor_name" : "Yousef",
-        "isntructor_email" : "yousef@qu.edu.qa",
+        "email" : "yousef@qu.edu.qa",
         "CRN" : "22156",
         "students" : [
    
