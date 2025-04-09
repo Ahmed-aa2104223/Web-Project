@@ -1,6 +1,7 @@
 // Retrieve instructors and course data (using course.json stored in localStorage)
 const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const courses = JSON.parse(localStorage.getItem("courseJSON")); // course.json data is used here
+const students = JSON.parse(localStorage.getItem("students"))
 
 // Retrieve the logged-in instructor's email from localStorage
 const email = localStorage.getItem("email");
@@ -58,6 +59,7 @@ function renderClasses(myClasses) {
       <table class="grade-table">
         <thead>
           <tr>
+            <th>Student Name</th>
             <th>Student ID</th>
             <th>Final Grade</th>
           </tr>
@@ -68,9 +70,13 @@ function renderClasses(myClasses) {
     if (record.students && record.students.length > 0) {
       record.students.forEach((student) => {
         let studentID = typeof student === 'object' ? student.id : student;
+        let studentName = students.find( e => e.id === studentID).name;
         let selectedGrade = (typeof student === 'object' && student.grade) ? student.grade : "";
         tableHTML += `
           <tr>
+            <td>
+              ${studentName}
+            </td>
             <td>
               <input type="text" name="studentID" value="${studentID}" readonly>
             </td>
@@ -151,10 +157,18 @@ function submitGrades(e) {
         id: studentID,
         grade: finalGrade
       });
+      const student = students.find( e => e.id === studentID);
+      studentCourse = student.courses.find( e => e.CRN === crn);
+      console.log(studentCourse);
+      studentCourse.grade = finalGrade;
+      studentCourse.status = "Completed"
+      localStorage.setItem("students", JSON.stringify(students));
+      
     }
   });
-  
   record.students = updatedStudents;
   localStorage.setItem("courseJSON", JSON.stringify(courses));
   alert("Grades submitted successfully for CRN " + crn);
 }
+
+
