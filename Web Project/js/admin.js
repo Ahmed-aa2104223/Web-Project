@@ -4,7 +4,7 @@ const registration = JSON.parse(localStorage.getItem("registration"));
 const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const courses = JSON.parse(localStorage.getItem("courses"));
 const course = JSON.parse(localStorage.getItem("courseJSON")); // classes info (if any)
-console.log(instructors);
+
 // Global filter variables; default is "all"
 let selectedCategory = "all";
 let selectedStatus = "all";
@@ -26,7 +26,7 @@ const crnInput = document.querySelector("#crnInput"); // text input for CRN
 const instructorName = document.querySelector("#instructorName");
 const maxRegistrations = document.querySelector("#maxRegistrations");
 
-console.log(course);
+
 
 
 // Listen for changes in the category filter
@@ -68,29 +68,35 @@ function create_course(e) {
     const hours = course_hours.value.trim();
     const preq = prerequisite.value.trim() || null;
 
-    // Create a new course object
-    const newCourse = {
-        course_name: name,
-        course_code: code,
-        credit_hour: parseInt(hours),
-        prerequisite: preq,
-    };
+    if(!dupeCode(code)){
+        // Create a new course object
+        const newCourse = {
+            course_name: name,
+            course_code: code,
+            credit_hour: parseInt(hours),
+            prerequisite: preq,
+        };
 
-    // Add newCourse to the courses array and update localStorage
-    courses.push(newCourse);
-    localStorage.setItem("courses", JSON.stringify(courses));
-    
-    
+        // Add newCourse to the courses array and update localStorage
+        courses.push(newCourse);
+        localStorage.setItem("courses", JSON.stringify(courses));
+        
+        
 
-    // Clear the form fields
-    course_name.value = "";
-    course_code.value = "";
-    course_hours.value = "";
-    prerequisite.value = "";
+        // Clear the form fields
+        course_name.value = "";
+        course_code.value = "";
+        course_hours.value = "";
+        prerequisite.value = "";
 
 
-    console.log("New course created: " + name);
-    // Optionally, call read() if the courses table should update
+        console.log("New course created: " + name);
+        // Optionally, call read() if the courses table should update
+
+    } else{
+        alert("Duplicated Course Code!")
+    }
+   
 }
 
 // Create a new class (registration record) from the newClassForm
@@ -107,7 +113,12 @@ function create_class(e) {
         return;
     }
 
-    // Create a new registration record for the class
+    if(!dupeCode(code)){
+        alert("No courses with that course code")
+    } else if(dupeCRN(crn)){
+        alert("Duplicate CRN")
+    } else {
+         // Create a new registration record for the class
     const newClass = {
         CRN: crn, // use the entered CRN
         course_code: code,
@@ -141,6 +152,8 @@ function create_class(e) {
 
     read(); // re-render the courses table
     console.log("New class created for course " + code);
+    }
+   
 }
 
 // Handle click events for Validate/Cancel buttons using event delegation
@@ -198,16 +211,26 @@ function countSeats(CRN) {
     return count;
 }
 
-function dups(courseCode) {
+// function to check any duplicate course codes
+function dupeCode(courseCode) {
     const course_code = courses.find((element) => element.course_code.toLowerCase() == courseCode.toLowerCase());
-    if (studentCourses.find(element => element.course_code == course_code)) {
+    if (course_code) {
         return true;
     } else {
         return false;
     }
 }
 
-console.log(dups("cmps 151"));
+//function to check any duplicate CRNS
+function dupeCRN(crn) {
+    const course_crn = registration.find((element) => element.CRN == crn);
+    if (course_crn) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 
 // Read the registration array, update records with course info, group by course, and render
