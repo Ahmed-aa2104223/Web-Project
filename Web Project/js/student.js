@@ -5,7 +5,7 @@ window.onload = JSON.parse(localStorage.getItem("students"));
 // retrieve student info
 const email = localStorage.getItem("email");
 const students = JSON.parse(localStorage.getItem("students"))
-
+const allCourses = JSON.parse(localStorage.getItem("courses"))
 // selectors
 const courses = document.querySelector("#courses");
 const search = document.querySelector("#search");
@@ -120,11 +120,9 @@ Wbuttom.addEventListener("click", async function(e){
 
 async function retrieveColor(Color){ 
     filtered = students.find((element) => element.email.toLowerCase() === email);
-    const response2 = await fetch('../data/courses.json');
-    const data2 = await response2.json();
-        insertion.innerHTML = ""
+    insertion.innerHTML = ""
     filtered.courses.forEach((e) => {
-        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo = allCourses.find((element) => element.course_code === e.course_code);
         courseInfo.status = e.status;
         courseInfo.grade = e.grade;
         if(courseInfo.status == Color)
@@ -141,15 +139,13 @@ async function retrieve(){
     filtered = students.find((element) => element.email.toLowerCase() === email);
     
     localStorage.setItem("studentCourses",JSON.stringify(filtered.courses));
-    
-    const response2 = await fetch('../data/courses.json');
-    const data2 = await response2.json();
-    
     let gpaCourses = [];
     insertion.innerhtml = "";
 
+    
+
     filtered.courses.forEach((e) => {
-        courseInfo = data2.find((element) => element.course_code === e.course_code);
+        courseInfo = allCourses.find((element) => element.course_code === e.course_code);
         courseInfo.status = e.status;
         courseInfo.grade = e.grade;
         gpaCourses.push(courseInfo);
@@ -223,10 +219,7 @@ function calculateGPA(courses) {
 //------------------------All courses-----------------------------
 // reading and rendering
 async function read(){
-    const response = await fetch('../data/courses.json');
-    const data = await response.json();
-    localStorage.setItem("allCourses", JSON.stringify(data));
-    data.map((element) => {
+    allCourses.map((element) => {
         if(element.prerequisite == null && element.concurrent_prerequisite)
             element.prerequisite = `Prerequisite: ${element.concurrent_prerequisite} (can be taken concurrently) `
         else if(element.prerequisite == null )
@@ -236,7 +229,7 @@ async function read(){
         else
             element.prerequisite = `Prerequisite: ${element.prerequisite.join(" and ")}`;
     })
-    data.forEach(element => {
+    allCourses.forEach(element => {
         courses.innerHTML += renderCourses(element);
     });
 

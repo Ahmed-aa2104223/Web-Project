@@ -97,29 +97,17 @@
       <div class="section">
         <h2>Create New Course</h2>
         <form id="newCourseForm">
-          <label for="courseName">Course Name:</label><br>
-          <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required><br><br>
-          
           <label for="courseCode">Course Code:</label><br>
           <input type="text" id="courseCode" name="courseCode" placeholder="Enter course code" required><br><br>
-          
+
+          <label for="courseName">Course Name:</label><br>
+          <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required><br><br>
+        
           <label for="courseHours">Credit Hours:</label><br>
           <input type="text" id="courseHours" name="courseHours" placeholder="Enter credit hours" required><br><br>
           
           <label for="prerequisite">Prerequisite:</label><br>
           <input type="text" id="prerequisite" name="prerequisite" placeholder="Enter prerequisite (if any)"><br><br>
-          
-          <label for="concurrentPrerequisite">Concurrent Prerequisite:</label><br>
-          <input type="text" id="concurrentPrerequisite" name="concurrentPrerequisite" placeholder="Enter concurrent prerequisite (if any)"><br><br>
-          
-          <label for="courseCategory">Category:</label><br>
-          <input type="text" id="courseCategory" name="courseCategory" placeholder="e.g., CMPS, ENGL" required><br><br>
-  
-          <label for="courseStatus">Status:</label><br>
-          <select id="courseStatus" name="courseStatus">
-            <option value="open">Open for Registration</option>
-            <option value="pending">Pending</option>
-          </select><br><br>
           
           <input type="submit" value="Create Course">
         </form>

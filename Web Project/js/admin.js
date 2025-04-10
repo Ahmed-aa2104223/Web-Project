@@ -4,10 +4,7 @@ const registration = JSON.parse(localStorage.getItem("registration"));
 const instructors = JSON.parse(localStorage.getItem("instructorsJSON"));
 const courses = JSON.parse(localStorage.getItem("courses"));
 const course = JSON.parse(localStorage.getItem("courseJSON")); // classes info (if any)
-
-console.log(students);
-
-
+console.log(instructors);
 // Global filter variables; default is "all"
 let selectedCategory = "all";
 let selectedStatus = "all";
@@ -28,6 +25,9 @@ const courseCodeInput = document.querySelector("#courseCodeInput"); // text inpu
 const crnInput = document.querySelector("#crnInput"); // text input for CRN
 const instructorName = document.querySelector("#instructorName");
 const maxRegistrations = document.querySelector("#maxRegistrations");
+
+console.log(course);
+
 
 // Listen for changes in the category filter
 const categoryFilter = document.querySelector("#categoryFilter");
@@ -67,9 +67,6 @@ function create_course(e) {
     const code = course_code.value.trim();
     const hours = course_hours.value.trim();
     const preq = prerequisite.value.trim() || null;
-    const concPreq = concurrentPrerequisite.value.trim() || null;
-    const category = course_category.value.trim();
-    const statusVal = course_status.value; // "open" or "pending"
 
     // Create a new course object
     const newCourse = {
@@ -77,23 +74,20 @@ function create_course(e) {
         course_code: code,
         credit_hour: hours,
         prerequisite: preq,
-        concurrent_prerequisite: concPreq,
-        category: category,
-        status: statusVal
     };
 
     // Add newCourse to the courses array and update localStorage
     courses.push(newCourse);
     localStorage.setItem("courses", JSON.stringify(courses));
+    
+    
 
     // Clear the form fields
     course_name.value = "";
     course_code.value = "";
     course_hours.value = "";
     prerequisite.value = "";
-    concurrentPrerequisite.value = "";
-    course_category.value = "";
-    course_status.value = "open";
+
 
     console.log("New course created: " + name);
     // Optionally, call read() if the courses table should update
@@ -119,13 +113,26 @@ function create_class(e) {
         course_code: code,
         instructor: instructor,
         seats: maxRegs,
-        status: "pending" // default status for new classes
+        status: "open", // default status for new classes
+        approved : false
     };
 
-    // Add the new class to the registration array and update localStorage
-    registration.push(newClass);
-    localStorage.setItem("registration", JSON.stringify(registration));
 
+    const instructorEmail = instructors.find(e => e.name.toLowerCase() === instructor.toLowerCase()).email;
+    const newCourse = {
+        instructor_name : instructor,
+        email : instructorEmail,
+        CRN: crn,
+        students : []
+    }
+
+    // Add the new class to the registration and instructor json and update localStorage and isstructor json
+    registration.push(newClass);
+    course.push(newCourse);
+    instructors.find(e => e.name === instructor).CRNS.push(parseInt(crn));
+    localStorage.setItem("registration", JSON.stringify(registration));
+    localStorage.setItem("courseJSON", JSON.stringify(course));
+    localStorage.setItem("instructorsJSON", JSON.stringify(instructors));
     // Clear the form fields
     courseCodeInput.value = "";
     crnInput.value = "";

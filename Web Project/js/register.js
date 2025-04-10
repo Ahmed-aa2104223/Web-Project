@@ -1,10 +1,11 @@
 // retrieve student info
 const email = localStorage.getItem("email");
 const studentCourses = JSON.parse(localStorage.getItem("studentCourses"));
-const allCourses = JSON.parse(localStorage.getItem("allCourses"));
+const allCourses = JSON.parse(localStorage.getItem("courses"));
 const registration = JSON.parse(localStorage.getItem("registration"));
 const students = JSON.parse(localStorage.getItem("students"));
 const course = JSON.parse(localStorage.getItem("courseJSON"));
+
 
 
 // selectors
