@@ -153,6 +153,8 @@ async function retrieve(){
     });
 
     gpa = calculateGPA(gpaCourses);
+    console.log(gpa);
+    
 
     studentinfo.innerHTML = `<h2>WELCOME &nbsp;&nbsp;&nbsp;&nbsp; ${filtered.name}!</h2> 
                             <h2>GPA: ${gpa}</h2>`
@@ -197,10 +199,17 @@ function calculateGPA(courses) {
 
     courses.forEach(course => {
         if (course.status === "Completed" && gradeScale[course.grade] !== undefined) {
+            console.log(course);
+            
+            
+            
             totalPoints += gradeScale[course.grade] * course.credit_hour;
             totalCredits += course.credit_hour;
         }
     });
+
+    console.log(totalPoints);
+    console.log(totalCredits);
 
     return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "N/A";
 }

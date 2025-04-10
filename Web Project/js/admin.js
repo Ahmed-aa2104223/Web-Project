@@ -72,7 +72,7 @@ function create_course(e) {
     const newCourse = {
         course_name: name,
         course_code: code,
-        credit_hour: hours,
+        credit_hour: parseInt(hours),
         prerequisite: preq,
     };
 
@@ -197,6 +197,18 @@ function countSeats(CRN) {
     let count = registerCourse ? registerCourse.students.length : 0;
     return count;
 }
+
+function dups(courseCode) {
+    const course_code = courses.find((element) => element.course_code.toLowerCase() == courseCode.toLowerCase());
+    if (studentCourses.find(element => element.course_code == course_code)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(dups("cmps 151"));
+
 
 // Read the registration array, update records with course info, group by course, and render
 async function read() {
