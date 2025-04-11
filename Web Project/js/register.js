@@ -198,18 +198,35 @@ async function read() {
 // render the courses list
 function renderCourses(data) {
     if (!data.course_name == "") {
-        return `<tr value="${data.status}" id="${data.CRN}">
-                    <td class="course_name">${data.course_name}</td>
-                    <td class="course_code">${data.course_code}</td>
-                    <td class="credit_hour">${data.credit_hour}</td>
-                    <td class="instructor">${data.instructor}</td>
-                    <td class="seats">${data.actual_seats}/${data.seats}</td>
-                    <td class="CRN">${data.CRN}</td>
-                    <td>
-                        <form>
-                            <input type="submit" value="Register" onClick="event.preventDefault();register(${data.CRN})">
-                        </form>
-                    </td>
-                </tr>`;
+       return `<div class="card">
+        <h2>${data.status}</h2>
+        <h4>${data.course_name}</h4>
+        <h4>${data.course_code}</h4>
+        <h4>${data.credit_hour} Credit Hour</h4>
+        <h4>Instructor: ${data.instructor}</h4>
+        <h4>${data.actual_seats}/${data.seats} Seats</h4>
+        <h4>${data.CRN}</h4>
+        <form>
+            <input type="submit" value="Register" onClick="event.preventDefault();register(${data.CRN})"></input>
+        </form>
+        </div> ` 
     }
 }
+
+
+
+
+
+// return `<tr value="${data.status}" id="${data.CRN}">
+// <td class="course_name">${data.course_name}</td>
+// <td class="course_code">${data.course_code}</td>
+// <td class="credit_hour">${data.credit_hour}</td>
+// <td class="instructor">${data.instructor}</td>
+// <td class="seats">${data.actual_seats}/${data.seats}</td>
+// <td class="CRN">${data.CRN}</td>
+// <td>
+//     <form>
+//         <input type="submit" value="Register" onClick="event.preventDefault();register(${data.CRN})">
+//     </form>
+// </td>
+// </tr>`;

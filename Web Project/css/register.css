@@ -123,14 +123,90 @@ input[type="submit"] {
     font-weight: bold;
 }
 
-input[type="submit"]:hover {
-    background-color: var(--Maroon);
-}
 
-input:hover{
+.card input:hover{
     color: whitesmoke;
     background-color: #8A1538;
-    box-shadow: 3px 3px black;
+    box-shadow: 0px 0px 5px black;
+}
+
+
+.courses{
+    background-color: rgb(240, 235, 235);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1.5fr));
+    border-radius: 0.2rem;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center; 
+    margin: 5rem;
+    padding: 5rem;
+    border: 3px solid #8A1538;
+    box-shadow: 0px 0px 5px 5px gray;
+
+    
+}
+.card{
+    align-items: center;
+    background-color: white;
+    border-radius: 0.2rem;
+    margin: 1rem;
+    width: auto;
+    height: auto;
+    box-shadow: 0px 5px rgba(94, 94, 94, 0.13);
+    padding: 1rem;
+    overflow-y: auto;
+    border: 2px solid #8A1538;
+    border-radius: 15px;
+
+}
+.card:hover{
+    transform: translateY(-20px);
+    box-shadow: 0px 8px 30px gray;
+}
+
+.card li{
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.card h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    justify-self: center;
+    color: green;
+}
+.card h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    justify-self: center;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 4px 0;
+    justify-self: center;
+}
+.card input{
+    justify-self: center;
+    align-self: center;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 15px;
+    color: var(--Maroon);
+    border: 2px solid black;
+    font-size: 20px;
+}
+.card form{
+    padding-top: 10px;
+    justify-self: center;
+}
+
+.registers{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1.5fr));
 }
 
 
