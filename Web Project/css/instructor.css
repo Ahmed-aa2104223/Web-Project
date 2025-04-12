@@ -174,5 +174,9 @@ background-color: #f2f2f2;
     }
     nav{
         margin: 5% 0%;
+        padding: 0%;
+    }
+    nav ul li{
+        font-size: 2.5rem;
     }
 }
