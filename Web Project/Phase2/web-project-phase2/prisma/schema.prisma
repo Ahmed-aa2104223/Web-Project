@@ -1,71 +1,72 @@
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
-model Student {
-  id      String    @id @default(cuid())
-  email   String    @unique
-  name    String
-  GPA     Float
-  courses Course[]  @relation("StudentCourses")
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
-model Course {
-  CRN          String    @id
-  course_code  String    @unique
-  course_name  String
-  credit_hour  Int
-  prerequisite String?   
-  students     Student[] @relation("StudentCourses")
-
-  // Explicit relation names to avoid ambiguity
-  instructor   Instructor @relation("InstructorForCourse", fields: [instructorEmail], references: [email])
-  instructorEmail String
-
-  // Reverse relation for instructor
-  instructorCourses Instructor[] @relation("InstructorForCourse")
-
-  // Join table relation with Registration
-  courseRegistrations CourseRegistration[]
+model User {
+  id       String  @id @default(uuid()) // Use UUIDs for the User ID
+  email    String  @unique
+  password String
+  state    String  // e.g., "administrator", "student", "instructor"
 }
 
 model Instructor {
-  email      String   @id
-  name       String
-  expertise  String
-  courses    Course[] @relation("InstructorCourses") // Reverse relation for courses
-  assignedCourse Course? @relation(fields: [courseCRN], references: [CRN])
-  courseCRN   String? // Reference to specific course taught by the instructor
+  id        String      @id @default(uuid()) // Use UUIDs for the Instructor ID
+  name      String
+  email     String      @unique
+  expertise String
+  offerings CourseOffering[] @relation("InstructorOfferings")
 }
 
-model Registration {
-  course_code  String
-  CRN          String
-  status       String
-  seats        Int
-  approved     Boolean
-  instructor   String
-  course       Course  @relation(fields: [course_code], references: [course_code])
-
-  @@unique([course_code, CRN]) 
+model CourseDefinition {
+  id             String      @id @default(uuid()) // Use UUIDs for CourseDefinition ID
+  courseName     String
+  courseCode     String      @unique
+  creditHour     Int
+  offerings      CourseOffering[]
+  prerequisites  Prerequisite[] @relation("CoursePrerequisite")
+  requiredFor    Prerequisite[] @relation("RequiredBy")
 }
 
-model CourseRegistration {
-  courseCode String
-  registrationId String
-  course      Course @relation(fields: [courseCode], references: [course_code])
-  registration Registration @relation(fields: [registrationId], references: [course_code])
-
-  @@id([courseCode, registrationId]) // Composite key
+model Prerequisite {
+  id             String          @id @default(uuid()) // Use UUIDs for Prerequisite ID
+  course         CourseDefinition @relation("CoursePrerequisite", fields: [courseId], references: [id])
+  courseId       String
+  prerequisite   CourseDefinition @relation("RequiredBy", fields: [prerequisiteId], references: [id])
+  prerequisiteId String
 }
 
-model Email {
-  email   String @id
-  password String
-  state    String
+model CourseOffering {
+  id            String       @id @default(uuid()) // Use UUIDs for CourseOffering ID
+  CRN           String       @unique
+  status        String
+  seats         Int
+  approved      Boolean
+  instructor    Instructor   @relation("InstructorOfferings", fields: [instructorId], references: [id])
+  instructorId  String
+  course        CourseDefinition @relation(fields: [courseId], references: [id])
+  courseId      String
+  students      StudentCourse[] @relation("CourseEnrollments")
+}
+
+model Student {
+  id        String          @id // student ID as primary key (String type)
+  name      String
+  email     String          @unique
+  GPA       Float
+  courses   StudentCourse[] @relation("StudentEnrollments")
+}
+
+model StudentCourse {
+  id         String        @id @default(uuid()) // Use UUIDs for StudentCourse ID
+  student    Student       @relation("StudentEnrollments", fields: [studentId], references: [id])
+  studentId  String
+  course     CourseOffering @relation("CourseEnrollments", fields: [courseId], references: [id])
+  courseId   String
+  grade      String
+  status     String
 }

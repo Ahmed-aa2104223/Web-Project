@@ -1,0 +1,64 @@
+[
+    {
+        "instructor_name" : "Mohammed",
+        "email" : "mohammed@qu.edu.qa",
+        "CRN" : "22151",
+        "students" : [
+
+        ]
+    },
+    {
+        "instructor_name" : "Ahmed",
+        "email" : "ahmed@qu.edu.qa",
+        "CRN" : "22152",
+        "students" : [
+        ]
+    },
+    {
+        "instructor_name" : "Yuri",
+        "email" : "yuri@qu.edu.qa",
+        "CRN" : "22153",
+        "students" : [
+
+        ]
+    },
+    {
+        "instructor_name" : "Saleh",
+        "email" : "saleh@qu.edu.qa",
+        "CRN" : "22154",
+        "students" : [
+
+        ]
+    },
+    {
+        "instructor_name" : "Moutaz",
+        "email" : "moutaz@qu.edu.qa",
+        "CRN" : "22155",
+        "students" : [
+
+        ]
+    },
+    {
+        "instructor_name" : "Yuri",
+        "email" : "yuri@qu.edu.qa",
+        "CRN" : "20002",
+        "students" : [
+ 
+        ]
+    },
+    {
+        "instructor_name" : "Hussein",
+        "email" : "hussein@qu.edu.qa",
+        "CRN" : "20231",
+        "students" : [
+ 
+        ]
+    },{
+        "instructor_name" : "Yousef",
+        "email" : "yousef@qu.edu.qa",
+        "CRN" : "22156",
+        "students" : [
+   
+        ]
+    }
+]

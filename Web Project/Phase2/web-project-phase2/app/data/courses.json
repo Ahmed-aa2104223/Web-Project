@@ -1,0 +1,252 @@
+[
+    {
+      "course_name": "Programming Concepts",
+      "course_code": "CMPS 151",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "English Language I",
+      "course_code": "ENGL 202",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "HIST 121 History of Qatar",
+      "course_code": "HIST 121",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "General Chemistry",
+      "course_code": "CHEM 101",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Experimental General Chemistry",
+      "course_code": "CHEM 103",
+      "credit_hour": 1,
+      "prerequisite": null,
+      "concurrent_prerequisite": "CHEM 101"
+    },
+    {
+      "course_name": "Calculus I",
+      "course_code": "MATH 101",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Object Oriented Programming",
+      "course_code": "CMPS 251",
+      "credit_hour": 4,
+      "prerequisite": "CMPS 151"
+    },
+    {
+      "course_name": "English Language II",
+      "course_code": "ENGL 203",
+      "credit_hour": 3,
+      "prerequisite": "ENGL 202"
+    },
+    {
+      "course_name": "General Physics for Engineering I",
+      "course_code": "PHYS 191",
+      "credit_hour": 3,
+      "prerequisite": "MATH 101"
+    },
+    {
+      "course_name": "Experimental General Physics for Engineering I",
+      "course_code": "PHYS 192",
+      "credit_hour": 1,
+      "prerequisite": null,
+      "concurrent_prerequisite": "PHYS 191"
+    },
+    {
+      "course_name": "Linear Algebra",
+      "course_code": "MATH 231",
+      "credit_hour": 3,
+      "prerequisite": "MATH 101"
+    },
+    {
+      "course_name": "Calculus II",
+      "course_code": "MATH 102",
+      "credit_hour": 3,
+      "prerequisite": "MATH 101"
+    },
+    {
+      "course_name": "Data Structures",
+      "course_code": "CMPS 303",
+      "credit_hour": 4,
+      "prerequisite": "CMPS 251"
+    },
+    {
+      "course_name": "Discrete Structures",
+      "course_code": "CMPS 205",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Computer Ethics",
+      "course_code": "CMPS 200",
+      "credit_hour": 1,
+      "prerequisite": null
+    },
+    {
+      "course_name": "General Physics for Engineering II",
+      "course_code": "PHYS 193",
+      "credit_hour": 3,
+      "prerequisite": "PHYS 191"
+    },
+    {
+        "course_name": "Experimental General Physics for Engineering II",
+        "course_code": "PHYS 194",
+        "credit_hour": 1,
+        "prerequisite": null,
+        "concurrent_prerequisite": "PHYS 193"
+    },
+    {
+      "course_name": "Arabic Language I",
+      "course_code": "ARAB 100",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Probability & Statistics",
+      "course_code": "GENG 200",
+      "credit_hour": 3,
+      "prerequisite": "MATH 102"
+    },
+    {
+      "course_name": "Design & Analysis of Algorithms",
+      "course_code": "CMPS 323",
+      "credit_hour": 3,
+      "prerequisite": ["CMPS 303","CMPS 205"]
+    },
+    {
+      "course_name": "Fundamentals of Database",
+      "course_code": "CMPS 351",
+      "credit_hour": 4,
+      "prerequisite": "CMPS 251"
+    },
+    {
+      "course_name": "Computer Architecture & Organization I",
+      "course_code": "CMPE 263",
+      "credit_hour": 3,
+      "prerequisite": ["CMPS 151","CMPS 205"]
+    },
+    {
+      "course_name": "Core Knowledge and Skills Package",
+      "course_code": "CKSP",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Software Engineering",
+      "course_code": "CMPS 310",
+      "credit_hour": 3,
+      "prerequisite": "CMPS 251"
+    },
+    {
+      "course_name": "Data Communications & Networks",
+      "course_code": "CMPE 355",
+      "credit_hour": 4,
+      "prerequisite": "CMPE 263",
+      "concurrent_prerequisite": "GENG 200"
+    },
+    {
+      "course_name": "Cybersecurity Fundamentals",
+      "course_code": "CMPS 381",
+      "credit_hour": 3,
+      "prerequisite": "CPMS 303"
+    },
+    {
+      "course_name": "Natural Science/Mathematics Package",
+      "course_code": "NSMP",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Major Elective I",
+      "course_code": "CMPS MJ1",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Operating Systems",
+      "course_code": "CMPS 405",
+      "credit_hour": 4,
+      "prerequisite": ["CMPS 303","CMPE 263"]
+    },
+    {
+      "course_name": "Web Development Fundamentals",
+      "course_code": "CMPS 350",
+      "credit_hour": 3,
+      "prerequisite": "CMPS 251"
+    },
+    {
+      "course_name": "Islamic Culture",
+      "course_code": "DAWA 111",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Numerical Methods",
+      "course_code": "GENG 300",
+      "credit_hour": 3,
+      "prerequisite": ["MATH 102","MATH 231","CMPS 151"]
+    },
+    {
+      "course_name": "Senior Project I",
+      "course_code": "CMPS 493",
+      "credit_hour": 3,
+      "prerequisite": "Must complete a minimum of 84 CH AND CMPS 310 Software Engineering AND either CMPS 350 Web Development Fundamentals OR CMPS 405 Operating Systems"
+    },
+    {
+      "course_name": "Introduction to Project Management and Enterpreneurship",
+      "course_code": "CMPS 307",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Humanities/Fine Arts Package",
+      "course_code": "HFAP",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Major Elective II",
+      "course_code": "CMPS MJ2",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Senior Project II",
+      "course_code": "CMPS 499",
+      "credit_hour": 3,
+      "prerequisite": "CMPS 493"
+    },
+    {
+      "course_name": "Principles of Management",
+      "course_code": "MAGT 101",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Social/Behavioral Science Package",
+      "course_code": "SBSP",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+      "course_name": "Major Elective III",
+      "course_code": "CMPS MJ3",
+      "credit_hour": 3,
+      "prerequisite": null
+    },
+    {
+        "course_name": "Major Elective IV",
+        "course_code": "CMPS MJ4",
+        "credit_hour": 3,
+        "prerequisite": null
+    }
+  ]

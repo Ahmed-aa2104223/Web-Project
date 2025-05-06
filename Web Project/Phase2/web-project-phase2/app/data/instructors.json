@@ -1,0 +1,44 @@
+[
+    {
+        "name" : "Mohammed",
+        "email" : "mohammed@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22151]
+    },
+    {
+        "name" : "Ahmed",
+        "email" : "ahmed@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22152]
+    },
+    {
+        "name" : "Yuri",
+        "email" : "yuri@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22153,20002]
+    },
+    {
+        "name" : "Saleh",
+        "email" : "saleh@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22154]
+    },
+    {
+        "name" : "Moutaz",
+        "email" : "moutaz@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22155]
+    },
+    {
+        "name" : "Hussein",
+        "email" : "hussein@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [20231]
+    },
+    {
+        "name" : "Yousef",
+        "email" : "youef@qu.edu.qa",
+        "expertise" : "CMPS",
+        "CRNS" : [22156]
+    }
+]

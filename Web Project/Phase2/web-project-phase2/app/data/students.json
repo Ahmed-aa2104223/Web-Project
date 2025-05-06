@@ -1,0 +1,72 @@
+[
+    {
+        "email" : "123@qu.edu.qa",
+        "name" : "Faisal",
+        "id" : "202205767",
+        "GPA" : 0,
+        "courses" : [
+            {
+                "course_code" : "ENGL 202",
+                "CRN" : "20002",
+                "grade" : "N/A",
+                "status" : "In-progress"
+            },
+            {
+                "course_code" : "MATH 231",
+                "CRN" : "20231",
+                "grade" : "N/A",
+                "status" : "Pending"
+            },
+            {
+                "course_code" : "CMPS 493",
+                "CRN" : "20493",
+                "grade" : "B",
+                "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 405",
+            "CRN" : "20405",
+            "grade" : "C",
+            "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 303",
+            "CRN" : "20406",
+            "grade" : "A",
+            "status" : "Completed"
+            },
+            {
+            "course_code" : "CMPS 205",
+            "CRN" : "20407",
+            "grade" : "C",
+            "status" : "Completed"
+            }
+        ]   
+    },
+    {
+        "email" : "100@qu.edu.qa",
+        "name" : "Ahmed",
+        "id" : "202103425",
+        "GPA" : 0,
+        "courses" : [
+            {
+                "course_code" : "CMPS 493",
+                "CRN" : "20493",
+                "grade" : "B",
+                "status" : "Completed"
+            },
+            {
+                "course_code" : "CMPS 310",
+                "CRN" : "20310",
+                "grade" : "C",
+                "status" : "Completed"
+            },
+            {
+                "course_code" : "CMPS 405",
+                "CRN" : "20405",
+                "grade" : "C",
+                "status" : "Completed"
+            }
+        ]   
+    }
+]
