@@ -1,0 +1,71 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Student {
+  id      String    @id @default(cuid())
+  email   String    @unique
+  name    String
+  GPA     Float
+  courses Course[]  @relation("StudentCourses")
+}
+
+model Course {
+  CRN          String    @id
+  course_code  String    @unique
+  course_name  String
+  credit_hour  Int
+  prerequisite String?   
+  students     Student[] @relation("StudentCourses")
+
+  // Explicit relation names to avoid ambiguity
+  instructor   Instructor @relation("InstructorForCourse", fields: [instructorEmail], references: [email])
+  instructorEmail String
+
+  // Reverse relation for instructor
+  instructorCourses Instructor[] @relation("InstructorForCourse")
+
+  // Join table relation with Registration
+  courseRegistrations CourseRegistration[]
+}
+
+model Instructor {
+  email      String   @id
+  name       String
+  expertise  String
+  courses    Course[] @relation("InstructorCourses") // Reverse relation for courses
+  assignedCourse Course? @relation(fields: [courseCRN], references: [CRN])
+  courseCRN   String? // Reference to specific course taught by the instructor
+}
+
+model Registration {
+  course_code  String
+  CRN          String
+  status       String
+  seats        Int
+  approved     Boolean
+  instructor   String
+  course       Course  @relation(fields: [course_code], references: [course_code])
+
+  @@unique([course_code, CRN]) 
+}
+
+model CourseRegistration {
+  courseCode String
+  registrationId String
+  course      Course @relation(fields: [courseCode], references: [course_code])
+  registration Registration @relation(fields: [registrationId], references: [course_code])
+
+  @@id([courseCode, registrationId]) // Composite key
+}
+
+model Email {
+  email   String @id
+  password String
+  state    String
+}

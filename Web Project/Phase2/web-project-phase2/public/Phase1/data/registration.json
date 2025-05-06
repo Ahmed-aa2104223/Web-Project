@@ -1,0 +1,50 @@
+[
+    {
+        "course_code" : "CMPS 151",
+        "CRN" : "22151",
+        "status" : "open",
+        "seats" : 2,
+        "instructor" : "Mohammed",
+        "approved" : false
+    },
+    {
+        "course_code" : "CHEM 103",
+        "CRN" : "22152",
+        "status" : "open",
+        "seats" : 25,
+        "instructor" : "Ahmed",
+        "approved" : false
+    },
+    {
+        "course_code" : "ENGL 203",
+        "CRN" : "22153",
+        "status" : "open",
+        "seats" : 30,
+        "instructor" : "Yuri",
+        "approved" : false
+    },
+    {
+        "course_code" : "CMPS 323",
+        "CRN" : "22154",
+        "status" : "open",
+        "seats" : 51,
+        "instructor" : "Saleh",
+        "approved" : false
+    },
+    {
+        "course_code" : "CMPS 493",
+        "CRN" : "22155",
+        "status" : "open",
+        "seats" : 40,
+        "instructor" : "Moutaz",
+        "approved" : false
+    },
+    {
+        "course_code" : "CMPS 493",
+        "CRN" : "22156",
+        "status" : "open",
+        "seats" : 20,
+        "instructor" : "Yousef",
+        "approved" : false
+    }
+]

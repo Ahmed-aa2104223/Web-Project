@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrators</title>
+  <link rel="stylesheet" href="../css/administrator.css">
+
+</head>
+<body>
+  <header>
+    <img src="../img/QU-logo-removebg.png" alt="Qatar University Logo">
+    <div class="header">
+      <h1>Administrator Dashboard</h1>
+      <p>Manage Courses and Classes</p>
+    </div> 
+    <nav>
+      <ul>
+        <li><a href="../html/login.html">Switch Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="section">
+        <h2>Current Courses</h2>
+        <!-- New Filter Container (stacked vertically) -->
+        <div class="filter-container">
+          <div class="filter-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" name="categoryFilter">
+              <option value="all">All</option>
+              <option value="ARAB">ARAB</option>
+              <option value="CMPS">CMPS</option>
+              <option value="CMPE">CMPE</option>
+              <option value="CHEM">CHEM</option>
+              <option value="CKSP">CKSP</option>
+              <option value="ENGL">ENGL</option>
+              <option value="GENG">GENG</option>
+              <option value="HIST">HIST</option>
+              <option value="HFAP">HFAP</option>
+              <option value="MATH">MATH</option>
+              <option value="NSMP">NSMP</option>
+              <option value="PHYS">PHYS</option>
+              <option value="SBSP">SBSP</option>
+              
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter" name="statusFilter">
+              <option value="all">All</option>
+              <option value="open">Open for Registration</option>
+              <option value="validated">Validated</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Classes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="courses">
+            <!-- Dynamic content populated by admin.js -->
+          </tbody>
+        </table>
+        <p style="font-size: 0.9em;">* Courses are shown with their status and classes. Only validated classes can start.</p>
+      </div>
+  
+      <div class="section">
+        <h2>Create New Course</h2>
+        <form id="newCourseForm">
+          <label for="courseCode">Course Code:</label><br>
+          <input type="text" id="courseCode" name="courseCode" placeholder="Enter course code" required><br><br>
+
+          <label for="courseName">Course Name:</label><br>
+          <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required><br><br>
+        
+          <label for="courseHours">Credit Hours:</label><br>
+          <input type="text" id="courseHours" name="courseHours" placeholder="Enter credit hours" required><br><br>
+          
+          <label for="prerequisite">Prerequisite:</label><br>
+          <input type="text" id="prerequisite" name="prerequisite" placeholder="Enter prerequisite (if any)"><br><br>
+          
+          <input type="submit" value="Create Course">
+        </form>
+      </div>
+  
+      <div class="section">
+        <h2>Create New Class</h2>
+        <form id="newClassForm">
+          <label for="courseCodeInput">Course Code:</label><br>
+          <input type="text" id="courseCodeInput" name="courseCodeInput" placeholder="Enter course code" required><br><br>
+          
+          <label for="crnInput">CRN:</label><br>
+          <input type="text" id="crnInput" name="crnInput" placeholder="Enter CRN" required><br><br>
+          
+          <label for="instructorName">Instructor Name:</label><br>
+          <input type="text" id="instructorName" name="instructorName" placeholder="Enter instructor name" required><br><br>
+          
+          <label for="maxRegistrations">Max Registrations:</label><br>
+          <input type="number" id="maxRegistrations" name="maxRegistrations" placeholder="Enter max registrations" required><br><br>
+          
+          <input type="submit" value="Create Class">
+        </form>
+      </div>
+    </div>
+    <script src="../js/admin.js"></script>
+  </main>
+  
+  <footer>&copy; all the copy rights is for Qatar University 2025</footer>
+</body>
+</html>

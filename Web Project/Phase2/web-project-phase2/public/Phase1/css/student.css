@@ -1,0 +1,318 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Maroon: #8A1538;
+    --Yellow: #cbd600;
+    --Green: #008000;
+    --Red: #bc0000;
+    font-family: "Inter", sans-serif;
+    font-size: var(0.85rem);
+    line-height: 1.8;
+
+}
+
+.container{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    display: grid;
+    height: 100vh;
+    background-color: lightgray;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "header nav"
+        "main main"
+        "main main"
+        "footer footer";
+}
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+    /* margin: 100% 100% 0% 0%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
+}
+main{
+    grid-area: main;
+    height: fit-content;
+}
+footer{
+    grid-area: footer;
+    /* height: 30px; */
+    color: white;
+    font-size: 1.2rem;
+    background-color: #8A1538;
+    /* position: absolute; */
+}
+header img{
+    height: auto;
+    width: 25%;
+}
+main form{
+    margin: 5% 10%;
+    display: flex;
+    justify-content: space-around;
+}
+.name{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(206, 201, 201);
+    box-shadow: 0px 0px 5px 5px var(--Maroon);
+    padding: 0.5% 0rem;
+    margin: 5%;
+    color: #464242;
+}
+
+.student-course{
+    background-color: rgb(238, 238, 238);
+    text-align: center;
+    margin: 5%;
+    padding: 1rem;
+    box-shadow: 0px 0px 5px 2px var(--Maroon);
+
+}
+
+.course-info{
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    padding: 0rem 1.2rem 0rem 1.2rem;
+
+}
+
+.card-course{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    height: fit-content;
+    gap: 5rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 1.2rem;
+    margin: 1.3rem;
+    box-shadow: 0px 10px rgba(255, 255, 255, 0.13);
+    box-shadow: 0px 0px 1px 1px var(--Maroon);
+
+}
+
+.card-course[value="black"]{
+    background-color: #727171;
+    color: rgb(180, 178, 178);
+}
+
+.card-course h4[style="color: black;"]{
+    background-color: #bc0000;
+    color: rgb(180, 178, 178);
+}
+
+.dot {
+    height: 25px;
+    width: 35px;
+    border-radius: 10%;
+    display: inline-block;
+    border: 0.5px solid rgb(0, 0, 0);
+    margin-top: 0.25rem;
+  }
+#GButtom{
+    background-color: var(--Green);
+}
+
+#YButtom{
+    background-color: var(--Yellow);
+}
+#RButtom{
+    background-color: var(--Red);
+}
+
+.buttoms{
+    padding: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    max-width: 200px;
+    justify-self: center;
+    padding: 1% 0%;
+}
+/* .SeachBar{
+    display: grid;
+    grid-template-columns: 10fr 1fr 1fr 1fr;
+    font-size: 1.5rem;
+    color: var(--Maroon);
+} */
+#search{
+    border: 2px solid var(--Maroon);
+    border-radius: 5px;
+    font-weight: 500px;
+    padding: 10px 5%;
+    width: 80%;
+    height: 40px;
+
+}
+
+
+/* #search_button{
+    justify-self: start;
+    cursor: pointer;
+    padding: 0rem 1rem 0rem 1rem;
+} */
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+  }
+
+.btn[value = "active"]{
+    background-color: #494949;
+    color: rgb(240, 240, 240);
+}
+
+.classes{
+    background-color: rgb(192, 179, 179);
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+}
+nav ul{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+nav ul li{
+    font-size: 28px;
+    list-style: none;
+    color: var(--Maroon);
+    border: none;
+}
+nav ul li a{
+    color: var(--Maroon);
+    text-decoration:none;
+}
+nav ul li :hover{
+    color: rgb(10, 10, 93);
+    /* font-size: 20px; */
+}
+
+h1{
+    text-align: center;
+}
+
+.courses{
+    background-color: rgb(240, 235, 235);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1.5fr));
+    border-radius: 0.2rem;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center; 
+    margin: 5rem;
+    padding: 5rem;
+    border: 3px solid #8A1538;
+    box-shadow: 0px 0px 5px 5px gray;
+
+    
+}
+
+.card{
+    align-items: center;
+    background-color: white;
+    border-radius: 0.2rem;
+    margin: 1rem;
+    width: 20rem;
+    height: 15rem;
+    box-shadow: 0px 5px rgba(94, 94, 94, 0.13);
+    padding: 1rem;
+    overflow-y: auto;
+    border: 2px solid #8A1538;
+    border-radius: 15px;
+
+}
+.card:hover{
+    transform: translateY(-20px);
+    box-shadow: 0px 8px 30px gray;
+}
+
+.card li{
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    justify-self: center;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 4px 0;
+    justify-self: center;
+}
+
+hr{
+    margin-bottom: 2%;
+}
+
+main #courses_contanier{
+    display: none;
+}
+.buttomInput{
+    border: 2px solid var(--Maroon);
+    width: 10rem;
+    height: 40px;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 2%;
+}
+.buttomInput:hover{
+    background-color: var(--Maroon);
+    color: whitesmoke;
+}
+
+@media screen and (max-width: 900px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+    header{
+        grid-area: header;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header img{
+        height: auto;
+        width: 50%;
+    }
+    nav{
+        margin: 5% 0%;
+    }
+    .card-course{
+        gap: 1rem;
+        font-size: 14px;
+    }
+    .course-info{
+        gap: 1rem;
+        font-size: 14px;
+    }
+
+}

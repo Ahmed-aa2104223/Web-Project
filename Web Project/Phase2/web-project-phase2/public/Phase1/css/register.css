@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Maroon: #8A1538;
+    font-family: "Inter", sans-serif;
+    font-size: var(0.85rem);
+    line-height: 1.8;
+}
+.container{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    display: grid;
+    height: 100vh;
+    background-color: lightgray;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+header{
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav{
+    grid-area: nav;
+}
+main{
+    grid-area: main;
+    margin-top: 5%;
+    margin-bottom: 0.5%;
+    background-color: rgba(182, 182, 182, 0.397);
+}
+footer{
+    grid-area: footer;
+    height: 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: var(--Maroon);
+}
+header img{
+    height: auto;
+    width: 15%;
+}
+
+nav ul{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+nav ul li{
+    font-size: 28px;
+    list-style: none;
+    color: var(--Maroon);
+    border: none;
+}
+nav ul li a{
+    color: var(--Maroon);
+    text-decoration:none;
+}
+
+nav ul li :hover{
+    color: rgb(10, 10, 93);
+}
+
+
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff; 
+}
+
+tbody tr:hover {
+    background-color: #e0e0e0; 
+    transition: 0.3s;
+}
+
+
+tbody tr[value="cancelled"]{
+    background-color: #727171;
+    color: rgb(180, 178, 178);
+}
+
+tbody tr[value="cancelled"] form{
+    visibility: hidden;
+}
+
+input[type="submit"] {
+    padding: 6px 12px;
+    border: 1px solid #333;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--Maroon);
+}
+
+input:hover{
+    color: whitesmoke;
+    background-color: #8A1538;
+    box-shadow: 3px 3px black;
+}
+
+
+@media screen and (max-width: 900px){
+    header img{
+        height: auto;
+        width: 40%;
+    }
+    
+}
