@@ -8,14 +8,14 @@ datasource db {
 }
 
 model User {
-  id       String  @id @default(uuid()) // Use UUIDs for the User ID
+  id       String  @id @default(cuid()) 
   email    String  @unique
   password String
   state    String  // e.g., "administrator", "student", "instructor"
 }
 
 model Instructor {
-  id        String      @id @default(uuid()) // Use UUIDs for the Instructor ID
+  id        String      @id @default(cuid()) 
   name      String
   email     String      @unique
   expertise String
@@ -23,7 +23,7 @@ model Instructor {
 }
 
 model CourseDefinition {
-  id             String      @id @default(uuid()) // Use UUIDs for CourseDefinition ID
+  id             String      @id@default(cuid()) 
   courseName     String
   courseCode     String      @unique
   creditHour     Int
@@ -33,7 +33,7 @@ model CourseDefinition {
 }
 
 model Prerequisite {
-  id             String          @id @default(uuid()) // Use UUIDs for Prerequisite ID
+  id             String          @id @default(cuid()) 
   course         CourseDefinition @relation("CoursePrerequisite", fields: [courseId], references: [id])
   courseId       String
   prerequisite   CourseDefinition @relation("RequiredBy", fields: [prerequisiteId], references: [id])
@@ -41,7 +41,7 @@ model Prerequisite {
 }
 
 model CourseOffering {
-  id            String       @id @default(uuid()) // Use UUIDs for CourseOffering ID
+  id            String       @id @default(cuid()) 
   CRN           String       @unique
   status        String
   seats         Int
@@ -54,7 +54,7 @@ model CourseOffering {
 }
 
 model Student {
-  id        String          @id // student ID as primary key (String type)
+  id        String          @id 
   name      String
   email     String          @unique
   GPA       Float
@@ -62,7 +62,7 @@ model Student {
 }
 
 model StudentCourse {
-  id         String        @id @default(uuid()) // Use UUIDs for StudentCourse ID
+  id         String        @id @default(cuid()) 
   student    Student       @relation("StudentEnrollments", fields: [studentId], references: [id])
   studentId  String
   course     CourseOffering @relation("CourseEnrollments", fields: [courseId], references: [id])

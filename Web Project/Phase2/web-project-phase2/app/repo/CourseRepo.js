@@ -12,6 +12,15 @@ class CourseRepo {
     return await prisma.user.findUnique({ where: { email } });
   }
 
+  async getUsers(type) {
+    if(type == 'student' || type == 'instructor' || type == 'administrator'){
+      return await prisma.user.findMany({
+        where : {state:type}
+      });
+    }
+    return await prisma.user.findMany();
+  }
+
   // Instructor methods
   async addInstructor(instructor) {
     return await prisma.instructor.create({ data: instructor });
@@ -19,6 +28,12 @@ class CourseRepo {
 
   async getInstructors() {
     return await prisma.instructor.findMany();
+  }
+
+  async getStudents() {
+    return await prisma.student.findMany({
+      include: {courses:true}
+    });
   }
 
   async getInstructorWithCourses(id) {
