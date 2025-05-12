@@ -58,6 +58,11 @@ class CourseRepo {
     return await prisma.studentCourse.create({ data: studentCourse });
   }
 
+  async getAllStudents() {
+    return await prisma.student.findMany();
+  }
+
+
   async getStudentCourses(studentId) {
     return await prisma.student.findUnique({
       where: { id: studentId },

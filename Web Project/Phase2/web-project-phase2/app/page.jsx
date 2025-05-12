@@ -9,6 +9,9 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    console.log();
+    
+
     const response = await fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
@@ -21,10 +24,12 @@ const LoginPage = () => {
 
     if (data.success) {
       localStorage.setItem('token', data.token);
-      window.location.href = '/dashboard'; // Redirect to dashboard
+      window.location.href = '/phase1/html/student.html'; // Redirect to dashboard
     } else {
       setError(data.message);
     }
+
+
   };
 
   return (
