@@ -1,64 +1,282 @@
 [
-    {
-        "instructor_name" : "Mohammed",
-        "email" : "mohammed@qu.edu.qa",
-        "CRN" : "22151",
-        "students" : [
-
-        ]
-    },
-    {
-        "instructor_name" : "Ahmed",
-        "email" : "ahmed@qu.edu.qa",
-        "CRN" : "22152",
-        "students" : [
-        ]
-    },
-    {
-        "instructor_name" : "Yuri",
-        "email" : "yuri@qu.edu.qa",
-        "CRN" : "22153",
-        "students" : [
-
-        ]
-    },
-    {
-        "instructor_name" : "Saleh",
-        "email" : "saleh@qu.edu.qa",
-        "CRN" : "22154",
-        "students" : [
-
-        ]
-    },
-    {
-        "instructor_name" : "Moutaz",
-        "email" : "moutaz@qu.edu.qa",
-        "CRN" : "22155",
-        "students" : [
-
-        ]
-    },
-    {
-        "instructor_name" : "Yuri",
-        "email" : "yuri@qu.edu.qa",
-        "CRN" : "20002",
-        "students" : [
- 
-        ]
-    },
-    {
-        "instructor_name" : "Hussein",
-        "email" : "hussein@qu.edu.qa",
-        "CRN" : "20231",
-        "students" : [
- 
-        ]
-    },{
-        "instructor_name" : "Yousef",
-        "email" : "yousef@qu.edu.qa",
-        "CRN" : "22156",
-        "students" : [
-   
-        ]
-    }
+  {
+    "instructor_name": "Mohammed",
+    "email": "mohammed@qu.edu.qa",
+    "CRN": "22151",
+    "students": [
+      {
+        "id": "202200001",
+        "grade": "C"
+      },
+      {
+        "id": "202200004",
+        "grade": "D"
+      },
+      {
+        "id": "202200005",
+        "grade": "B"
+      },
+      {
+        "id": "202200006",
+        "grade": "A"
+      },
+      {
+        "id": "202200007",
+        "grade": "D"
+      },
+      {
+        "id": "202200009",
+        "grade": "B"
+      },
+      {
+        "id": "202200010",
+        "grade": "B"
+      },
+      {
+        "id": "202200017",
+        "grade": "F"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Ahmed",
+    "email": "ahmed@qu.edu.qa",
+    "CRN": "22152",
+    "students": [
+      {
+        "id": "202200000",
+        "grade": "F"
+      },
+      {
+        "id": "202200001",
+        "grade": "B"
+      },
+      {
+        "id": "202200002",
+        "grade": "D"
+      },
+      {
+        "id": "202200004",
+        "grade": "A"
+      },
+      {
+        "id": "202200005",
+        "grade": "A"
+      },
+      {
+        "id": "202200006",
+        "grade": "B"
+      },
+      {
+        "id": "202200007",
+        "grade": "F"
+      },
+      {
+        "id": "202200008",
+        "grade": "A"
+      },
+      {
+        "id": "202200013",
+        "grade": "D"
+      },
+      {
+        "id": "202200016",
+        "grade": "D"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Yuri",
+    "email": "yuri@qu.edu.qa",
+    "CRN": "22153",
+    "students": [
+      {
+        "id": "202200003",
+        "grade": "F"
+      },
+      {
+        "id": "202200004",
+        "grade": "F"
+      },
+      {
+        "id": "202200007",
+        "grade": "F"
+      },
+      {
+        "id": "202200008",
+        "grade": "C"
+      },
+      {
+        "id": "202200009",
+        "grade": "C"
+      },
+      {
+        "id": "202200010",
+        "grade": "D"
+      },
+      {
+        "id": "202200011",
+        "grade": "D"
+      },
+      {
+        "id": "202200013",
+        "grade": "D"
+      },
+      {
+        "id": "202200014",
+        "grade": "F"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Saleh",
+    "email": "saleh@qu.edu.qa",
+    "CRN": "22154",
+    "students": [
+      {
+        "id": "202200005",
+        "grade": "B"
+      },
+      {
+        "id": "202200008",
+        "grade": "D"
+      },
+      {
+        "id": "202200011",
+        "grade": "C"
+      },
+      {
+        "id": "202200012",
+        "grade": "A"
+      },
+      {
+        "id": "202200013",
+        "grade": "A"
+      },
+      {
+        "id": "202200014",
+        "grade": "C"
+      },
+      {
+        "id": "202200015",
+        "grade": "C"
+      },
+      {
+        "id": "202200016",
+        "grade": "F"
+      },
+      {
+        "id": "202200017",
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Moutaz",
+    "email": "moutaz@qu.edu.qa",
+    "CRN": "22155",
+    "students": [
+      {
+        "id": "202200000",
+        "grade": "A"
+      },
+      {
+        "id": "202200002",
+        "grade": "C"
+      },
+      {
+        "id": "202200003",
+        "grade": "F"
+      },
+      {
+        "id": "202200009",
+        "grade": "F"
+      },
+      {
+        "id": "202200012",
+        "grade": "C"
+      },
+      {
+        "id": "202200015",
+        "grade": "C"
+      },
+      {
+        "id": "202200016",
+        "grade": "F"
+      },
+      {
+        "id": "202200017",
+        "grade": "C"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Yuri",
+    "email": "yuri@qu.edu.qa",
+    "CRN": "20002",
+    "students": [
+      {
+        "id": "202205767",
+        "grade": "N/A"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Hussein",
+    "email": "hussein@qu.edu.qa",
+    "CRN": "20231",
+    "students": [
+      {
+        "id": "202205767",
+        "grade": "N/A"
+      }
+    ]
+  },
+  {
+    "instructor_name": "Yousef",
+    "email": "yousef@qu.edu.qa",
+    "CRN": "22156",
+    "students": [
+      {
+        "id": "202200000",
+        "grade": "A"
+      },
+      {
+        "id": "202200001",
+        "grade": "C"
+      },
+      {
+        "id": "202200002",
+        "grade": "D"
+      },
+      {
+        "id": "202200003",
+        "grade": "A"
+      },
+      {
+        "id": "202200006",
+        "grade": "F"
+      },
+      {
+        "id": "202200010",
+        "grade": "C"
+      },
+      {
+        "id": "202200011",
+        "grade": "C"
+      },
+      {
+        "id": "202200012",
+        "grade": "C"
+      },
+      {
+        "id": "202200014",
+        "grade": "F"
+      },
+      {
+        "id": "202200015",
+        "grade": "B"
+      }
+    ]
+  }
 ]

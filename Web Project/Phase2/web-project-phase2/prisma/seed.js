@@ -5,7 +5,7 @@ import path from "path"
 const prisma = new PrismaClient()
 
 async function seed() {
-    console.log("🌱 Seeding Started...")
+    console.log("\u2728 Seeding Started...")
 
     const instructors = await fs.readJSON(path.join(process.cwd(), "app/data/instructors.json"))
     const registrations = await fs.readJSON(path.join(process.cwd(), "app/data/registration.json"))
@@ -28,67 +28,58 @@ async function seed() {
                 expertise: instructor.expertise,
             }
         })
-        instructorsMap[instructor.email] = createdInstructor.id // Map emails to instructor IDs
+        instructorsMap[instructor.email] = createdInstructor.id
     }
 
-    // Seed CourseDefinitions with upsert to handle duplicates
+    // Seed CourseDefinitions
     const courseDefinitionsMap = {}
     for (const course of courses) {
         const courseDef = await prisma.courseDefinition.upsert({
             where: { courseCode: course.course_code },
-            update: {},  // If courseCode exists, do nothing
+            update: {},
             create: {
                 courseCode: course.course_code,
                 courseName: course.course_name,
                 creditHour: course.credit_hour,
             }
         })
-        courseDefinitionsMap[course.course_code] = courseDef.id // Map courseCodes to course IDs
+        courseDefinitionsMap[course.course_code] = courseDef.id
     }
 
     // Seed Prerequisites
     for (const course of courses) {
-        console.log(`Processing course: ${course.course_code}`); // Log the course code
-
-        // Ensure course_code is a single value
-        if (Array.isArray(course.course_code)) {
-            console.error(`Invalid course_code: ${course.course_code}`);
-            continue; // Skip this iteration if the course_code is invalid
-        }
-
         const courseDef = await prisma.courseDefinition.findUnique({
-            where: { courseCode: course.course_code } // Querying one courseCode at a time
+            where: { courseCode: course.course_code }
         })
 
         if (courseDef && course.prerequisite) {
-            console.log(`Looking for prerequisite: ${course.prerequisite}`); // Log prerequisite
+            const prereqs = Array.isArray(course.prerequisite)
+                ? course.prerequisite
+                : [course.prerequisite]
 
-            // Ensure prerequisite is a single value
-            if (Array.isArray(course.prerequisite)) {
-                console.error(`Invalid prerequisite: ${course.prerequisite}`);
-                continue; // Skip if the prerequisite is an array
-            }
-
-            const prerequisite = await prisma.courseDefinition.findUnique({
-                where: { courseCode: course.prerequisite } // Querying one prerequisite courseCode at a time
-            })
-
-            if (prerequisite) {
-                await prisma.prerequisite.create({
-                    data: {
-                        courseId: courseDef.id,
-                        prerequisiteId: prerequisite.id
-                    }
+            for (const code of prereqs) {
+                const prerequisite = await prisma.courseDefinition.findUnique({
+                    where: { courseCode: code }
                 })
+                if (prerequisite) {
+                    await prisma.prerequisite.create({
+                        data: {
+                            courseId: courseDef.id,
+                            prerequisiteId: prerequisite.id
+                        }
+                    })
+                }
             }
         }
     }
 
-
-
     // Seed CourseOfferings
     for (const reg of registrations) {
-        const instructorId = instructorsMap[`${reg.instructor.toLowerCase()}@qu.edu.qa`]
+        const matchedUser = users.find(
+            u => u.state === "instructor" && u.email.toLowerCase().includes(reg.instructor.toLowerCase())
+        )
+        const instructorId = matchedUser ? instructorsMap[matchedUser.email] : undefined
+
         const courseDef = await prisma.courseDefinition.findUnique({
             where: { courseCode: reg.course_code }
         })
@@ -104,6 +95,8 @@ async function seed() {
                     courseId: courseDef.id,
                 }
             })
+        } else {
+            console.warn(`Missing instructor or courseDef for CRN ${reg.CRN}`)
         }
     }
 
@@ -120,6 +113,8 @@ async function seed() {
                     grade: course.grade,
                     status: course.status
                 })
+            } else {
+                console.warn(`Offering not found for CRN: ${course.CRN}`)
             }
         }
 
@@ -137,7 +132,7 @@ async function seed() {
     }
 
     await prisma.$disconnect()
-    console.log("✅ Seeding Completed")
+    console.log("\u2705 Seeding Completed")
 }
 
 seed().catch((e) => {

@@ -1,5 +1,61 @@
 [
     {
+    "course_code": "ENGL 202",
+    "CRN": "20002",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Yuri",
+    "approved": true
+    },
+    {
+    "course_code": "MATH 231",
+    "CRN": "20231",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Hussein",
+    "approved": true
+    },
+    {
+    "course_code": "CMPS 493",
+    "CRN": "20493",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Moutaz",
+    "approved": true
+    },
+    {
+    "course_code": "CMPS 405",
+    "CRN": "20405",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Yousef",
+    "approved": true
+    },
+    {
+    "course_code": "CMPS 303",
+    "CRN": "20406",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Mohammed",
+    "approved": true
+    },
+    {
+    "course_code": "CMPS 205",
+    "CRN": "20407",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Saleh",
+    "approved": true
+    },
+    {
+    "course_code": "CMPS 310",
+    "CRN": "20310",
+    "status": "open",
+    "seats": 30,
+    "instructor": "Ahmed",
+    "approved": true
+    },
+    {
         "course_code" : "CMPS 151",
         "CRN" : "22151",
         "status" : "open",

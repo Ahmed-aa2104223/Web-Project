@@ -140,6 +140,104 @@ form input {
   padding: 10px;
 }
 
+:root {
+  --Maroon: #8A1538;
+  --CardText: #464242;
+}
+
+.stat-card {
+  align-items: center;
+  background-color: white;
+  border-radius: 0.6rem;
+  margin: 1rem;
+  width: 20rem;
+  height: 15rem;
+  padding: 1rem;
+  overflow-y: auto;
+  border: 2px solid var(--Maroon);
+  box-shadow: 0px 5px rgba(94, 94, 94, 0.13);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 30px gray;
+}
+
+.stat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--Maroon);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.stat-card-content {
+  color: #222;
+  font-weight: 600;
+  line-height: 1.6;    
+  text-align: center;
+  white-space: pre-line;
+}
+
+.courses {
+  background-color: rgb(240, 235, 235);
+  padding: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.courses h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--Maroon);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: start;
+  padding: 2rem;
+}
+
+
+.card {
+  background-color: white;
+  border: 2px solid #8A1538;
+  border-radius: 15px;
+  padding: 1.5rem;
+  height: 15rem;
+  width: 100%;
+  max-width: 20rem;
+  overflow-y: auto;
+  box-shadow: 0px 5px rgba(94, 94, 94, 0.13);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 30px gray;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #8A1538;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #464242;
+  white-space: pre-line;
+  text-align: center;
+}
+
 @media screen and (min-width: 767px) {
   .container {
       grid-template-columns: 1fr 1fr 1fr;

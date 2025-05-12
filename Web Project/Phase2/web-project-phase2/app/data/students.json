@@ -1,72 +1,540 @@
 [
     {
-        "email" : "123@qu.edu.qa",
-        "name" : "Faisal",
-        "id" : "202205767",
-        "GPA" : 0,
-        "courses" : [
-            {
-                "course_code" : "ENGL 202",
-                "CRN" : "20002",
-                "grade" : "N/A",
-                "status" : "In-progress"
-            },
-            {
-                "course_code" : "MATH 231",
-                "CRN" : "20231",
-                "grade" : "N/A",
-                "status" : "Pending"
-            },
-            {
-                "course_code" : "CMPS 493",
-                "CRN" : "20493",
-                "grade" : "B",
-                "status" : "Completed"
-            },
-            {
-            "course_code" : "CMPS 405",
-            "CRN" : "20405",
-            "grade" : "C",
-            "status" : "Completed"
-            },
-            {
-            "course_code" : "CMPS 303",
-            "CRN" : "20406",
-            "grade" : "A",
-            "status" : "Completed"
-            },
-            {
-            "course_code" : "CMPS 205",
-            "CRN" : "20407",
-            "grade" : "C",
-            "status" : "Completed"
-            }
-        ]   
-    },
-    {
-        "email" : "100@qu.edu.qa",
-        "name" : "Ahmed",
-        "id" : "202103425",
-        "GPA" : 0,
-        "courses" : [
-            {
-                "course_code" : "CMPS 493",
-                "CRN" : "20493",
-                "grade" : "B",
-                "status" : "Completed"
-            },
-            {
-                "course_code" : "CMPS 310",
-                "CRN" : "20310",
-                "grade" : "C",
-                "status" : "Completed"
-            },
-            {
-                "course_code" : "CMPS 405",
-                "CRN" : "20405",
-                "grade" : "C",
-                "status" : "Completed"
-            }
-        ]   
-    }
+    "email": "123@qu.edu.qa",
+    "name": "Faisal",
+    "id": "202205767",
+    "GPA": 0,
+    "courses": [
+      {
+        "course_code": "ENGL 202",
+        "CRN": "20002",
+        "grade": "N/A",
+        "status": "In-progress"
+      },
+      {
+        "course_code": "MATH 231",
+        "CRN": "20231",
+        "grade": "N/A",
+        "status": "Pending"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "20493",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 405",
+        "CRN": "20405",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 303",
+        "CRN": "20406",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 205",
+        "CRN": "20407",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "100@qu.edu.qa",
+    "name": "Ahmed",
+    "id": "202103425",
+    "GPA": 0,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "20493",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 310",
+        "CRN": "20310",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 405",
+        "CRN": "20405",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200000@qu.edu.qa",
+    "name": "Phillip",
+    "id": "202200000",
+    "GPA": 3.05,
+    "courses": [
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "A",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200001@qu.edu.qa",
+    "name": "Sarah",
+    "id": "202200001",
+    "GPA": 1.95,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "B",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200002@qu.edu.qa",
+    "name": "Austin",
+    "id": "202200002",
+    "GPA": 3.04,
+    "courses": [
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "D",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "D",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200003@qu.edu.qa",
+    "name": "Cynthia",
+    "id": "202200003",
+    "GPA": 2.5,
+    "courses": [
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "F",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200004@qu.edu.qa",
+    "name": "Heather",
+    "id": "202200004",
+    "GPA": 1.98,
+    "courses": [
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "D",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200005@qu.edu.qa",
+    "name": "Noah",
+    "id": "202200005",
+    "GPA": 3.45,
+    "courses": [
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "B",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200006@qu.edu.qa",
+    "name": "Harold",
+    "id": "202200006",
+    "GPA": 3.06,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "B",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200007@qu.edu.qa",
+    "name": "Andrew",
+    "id": "202200007",
+    "GPA": 2.43,
+    "courses": [
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "D",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "F",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200008@qu.edu.qa",
+    "name": "John",
+    "id": "202200008",
+    "GPA": 3.36,
+    "courses": [
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "D",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200009@qu.edu.qa",
+    "name": "Christina",
+    "id": "202200009",
+    "GPA": 2.27,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200010@qu.edu.qa",
+    "name": "Robin",
+    "id": "202200010",
+    "GPA": 3.37,
+    "courses": [
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "D",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200011@qu.edu.qa",
+    "name": "Denise",
+    "id": "202200011",
+    "GPA": 1.0,
+    "courses": [
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "D",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200012@qu.edu.qa",
+    "name": "Eric",
+    "id": "202200012",
+    "GPA": 3.05,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200013@qu.edu.qa",
+    "name": "Brian",
+    "id": "202200013",
+    "GPA": 3.97,
+    "courses": [
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "D",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "D",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200014@qu.edu.qa",
+    "name": "Scott",
+    "id": "202200014",
+    "GPA": 3.21,
+    "courses": [
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "ENGL 203",
+        "CRN": "22153",
+        "grade": "F",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200015@qu.edu.qa",
+    "name": "Edwin",
+    "id": "202200015",
+    "GPA": 2.14,
+    "courses": [
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "C",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22156",
+        "grade": "B",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200016@qu.edu.qa",
+    "name": "Brenda",
+    "id": "202200016",
+    "GPA": 1.62,
+    "courses": [
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CHEM 103",
+        "CRN": "22152",
+        "grade": "D",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "F",
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "email": "202200017@qu.edu.qa",
+    "name": "Cindy",
+    "id": "202200017",
+    "GPA": 2.97,
+    "courses": [
+      {
+        "course_code": "CMPS 151",
+        "CRN": "22151",
+        "grade": "F",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 323",
+        "CRN": "22154",
+        "grade": "A",
+        "status": "Completed"
+      },
+      {
+        "course_code": "CMPS 493",
+        "CRN": "22155",
+        "grade": "C",
+        "status": "Completed"
+      }
+    ]
+  }
 ]

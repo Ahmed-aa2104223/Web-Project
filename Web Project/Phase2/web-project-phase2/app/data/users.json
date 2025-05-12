@@ -1,32 +1,147 @@
 [
-    {
-        "email" : "123@qu.edu.qa",
-        "password" : "123",
-        "state" : "student"
-    },
-    {
-        "email" : "100@qu.edu.qa",
-        "password" : "100",
-        "state" : "student"
-    },
-    {
-        "email" : "aa109@qu.edu.qa",
-        "password" : "aa109",
-        "state" : "student"
-    },
-    {
-        "email" : "mohammed@qu.edu.qa",
-        "password" : "mohd",
-        "state" : "instructor"
-    },
-    {
-        "email" : "yuri@qu.edu.qa",
-        "password" : "yuri",
-        "state" : "instructor"
-    },
-    {
-        "email" : "admin@qu.edu.qa",
-        "password" : "admin",
-        "state" : "administrator"
-    }
+  {
+    "email": "123@qu.edu.qa",
+    "password": "123",
+    "state": "student"
+  },
+  {
+    "email": "100@qu.edu.qa",
+    "password": "100",
+    "state": "student"
+  },
+  {
+    "email": "aa109@qu.edu.qa",
+    "password": "aa109",
+    "state": "student"
+  },
+  {
+    "email": "mohammed@qu.edu.qa",
+    "password": "mohd",
+    "state": "instructor"
+  },
+  {
+    "email": "yuri@qu.edu.qa",
+    "password": "yuri",
+    "state": "instructor"
+  },
+  {
+    "email": "admin@qu.edu.qa",
+    "password": "admin",
+    "state": "administrator"
+  },
+  {
+    "email": "202200000@qu.edu.qa",
+    "password": "000",
+    "state": "student"
+  },
+  {
+    "email": "202200001@qu.edu.qa",
+    "password": "001",
+    "state": "student"
+  },
+  {
+    "email": "202200002@qu.edu.qa",
+    "password": "002",
+    "state": "student"
+  },
+  {
+    "email": "202200003@qu.edu.qa",
+    "password": "003",
+    "state": "student"
+  },
+  {
+    "email": "202200004@qu.edu.qa",
+    "password": "004",
+    "state": "student"
+  },
+  {
+    "email": "202200005@qu.edu.qa",
+    "password": "005",
+    "state": "student"
+  },
+  {
+    "email": "202200006@qu.edu.qa",
+    "password": "006",
+    "state": "student"
+  },
+  {
+    "email": "202200007@qu.edu.qa",
+    "password": "007",
+    "state": "student"
+  },
+  {
+    "email": "202200008@qu.edu.qa",
+    "password": "008",
+    "state": "student"
+  },
+  {
+    "email": "202200009@qu.edu.qa",
+    "password": "009",
+    "state": "student"
+  },
+  {
+    "email": "202200010@qu.edu.qa",
+    "password": "010",
+    "state": "student"
+  },
+  {
+    "email": "202200011@qu.edu.qa",
+    "password": "011",
+    "state": "student"
+  },
+  {
+    "email": "202200012@qu.edu.qa",
+    "password": "012",
+    "state": "student"
+  },
+  {
+    "email": "202200013@qu.edu.qa",
+    "password": "013",
+    "state": "student"
+  },
+  {
+    "email": "202200014@qu.edu.qa",
+    "password": "014",
+    "state": "student"
+  },
+  {
+    "email": "202200015@qu.edu.qa",
+    "password": "015",
+    "state": "student"
+  },
+  {
+    "email": "202200016@qu.edu.qa",
+    "password": "016",
+    "state": "student"
+  },
+  {
+    "email": "202200017@qu.edu.qa",
+    "password": "017",
+    "state": "student"
+  },
+  {
+    "email": "yousef@qu.edu.qa",
+    "password": "yous123",
+    "state": "instructor"
+  },
+  {
+    "email": "moutaz@qu.edu.qa",
+    "password": "mout123",
+    "state": "instructor"
+  },
+  {
+    "email": "ahmed@qu.edu.qa",
+    "password": "ahme123",
+    "state": "instructor"
+  },
+  {
+    "email": "saleh@qu.edu.qa",
+    "password": "sale123",
+    "state": "instructor"
+  },
+  {
+  "email": "hussein@qu.edu.qa",
+  "password": "somepassword",
+  "state": "instructor"
+  }
 ]

@@ -136,6 +136,126 @@ class CourseRepo {
     });
     return courseStats;
   }
+
+  async getStudentsWithGPAUnder(threshold = 2.5) {
+    return await prisma.student.findMany({
+      where: { GPA: { lt: threshold } }
+    });
+  }
+
+  async getTopPerformingStudents(limit = 5) {
+    return await prisma.student.findMany({
+      orderBy: { GPA: 'desc' },
+      take: limit
+    });
+  } 
+
+  async getFailingStudents() {
+    return await prisma.student.findMany({
+      where: {
+        courses: {
+          some: { grade: 'F' }
+        }
+      },
+      include: { courses: true }
+    });
+  }
+
+  async getCourseEnrollmentCount(CRN) {
+    const course = await prisma.courseOffering.findUnique({
+        where: { CRN },
+        include: { students: true }
+    });
+    return course?.students.length ?? 0;
+  }
+
+  async getAverageGradePerCourse() {
+    const offerings = await prisma.courseOffering.findMany({
+      include: { students: true }
+    });
+
+    const gradeMap = { A: 4, B: 3, C: 2, D: 1, F: 0 };
+
+    return offerings.map(o => {
+      const grades = o.students
+        .map(s => gradeMap[s.grade?.toUpperCase()] ?? null)
+        .filter(g => g !== null);
+
+      const avg = grades.length
+        ? (grades.reduce((a, b) => a + b, 0) / grades.length).toFixed(2)
+        : 'N/A';
+
+      return { CRN: o.CRN, averageGrade: avg };
+    });
+  }
+
+  async getStudentCountPerInstructor() {
+    const instructors = await prisma.instructor.findMany({
+      include: {
+        offerings: {
+          include: { students: true }
+        }
+      }
+    });
+
+    return instructors.map(i => ({
+      instructor: i.name,
+      totalStudents: i.offerings.reduce((acc, o) => acc + o.students.length, 0)
+  }));
+  } 
+
+  async getMostPopularCourses(limit = 5) {
+    const offerings = await prisma.courseOffering.findMany({
+      include: { students: true }
+    });
+
+    return offerings
+      .map(o => ({ CRN: o.CRN, studentCount: o.students.length }))
+      .sort((a, b) => b.studentCount - a.studentCount)
+      .slice(0, limit);
+  }
+
+  async getStudentsEnrolledInCourse(CRN) {
+    const offering = await prisma.courseOffering.findUnique({
+      where: { CRN },
+      include: {
+        students: {
+          include: { student: true }
+        }
+      }
+    });
+
+    return offering?.students.map(sc => sc.student) || [];
+  }
+  
+  async getCoursesCompletedByStudent(studentId) {
+    const student = await prisma.student.findUnique({
+      where: { id: studentId },
+      include: {
+        courses: {
+          where: { status: 'Completed' },
+          include: { course: true }
+        }
+      }
+    });
+
+    return student?.courses.map(c => ({
+      CRN: c.course.CRN,
+      grade: c.grade
+    })) || [];
+  }
+
+  async getCourseFailRate(CRN) {
+    const offering = await prisma.courseOffering.findUnique({
+      where: { CRN },
+      include: { students: true }
+    });
+
+    if (!offering || offering.students.length === 0) return 'N/A';
+    const fails = offering.students.filter(s => s.grade === 'F').length;
+    return ((fails / offering.students.length) * 100).toFixed(1) + '%';
+} 
+
 }
 
 export default new CourseRepo();
