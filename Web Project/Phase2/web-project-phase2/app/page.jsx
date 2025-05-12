@@ -1,7 +1,9 @@
+// app/page.jsx
 "use client";
 
 import React, { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { FaGithub, FaGoogle, FaFacebook } from "react-icons/fa";  // ← import icons
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -56,7 +58,6 @@ export default function LoginPage() {
     if (res?.error) {
       setError(res.error);
     } else {
-      // successful sign-in; redirect as before
       window.location.href = "/phase1/html/student.html";
     }
   };
@@ -100,21 +101,33 @@ export default function LoginPage() {
           <h2>Or sign in with</h2>
           <button
             onClick={() => signIn("github")}
-            style={{ margin: "0.5rem" }}
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+            }}
           >
-            GitHub
+            <FaGithub style={{ marginRight: "0.5rem" }} /> GitHub
           </button>
           <button
             onClick={() => signIn("google")}
-            style={{ margin: "0.5rem" }}
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+            }}
           >
-            Google
+            <FaGoogle style={{ marginRight: "0.5rem" }} /> Google
           </button>
           <button
             onClick={() => signIn("facebook")}
-            style={{ margin: "0.5rem" }}
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+            }}
           >
-            Facebook
+            <FaFacebook style={{ marginRight: "0.5rem" }} /> Facebook
           </button>
         </div>
       </main>
