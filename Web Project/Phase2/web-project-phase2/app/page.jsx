@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { FaGithub, FaGoogle, FaFacebook } from "react-icons/fa";  // ← import icons
+import { FaGithub, FaGoogle, FaFacebook } from "react-icons/fa";  
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -98,67 +98,73 @@ export default function LoginPage() {
         </form>
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-        <h2>Or sign in with</h2>
-        <button
-          onClick={() => signIn("github")}
-          style={{
-            margin: "0.5rem",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: '10rem',
-            height: '3rem',
-            fontSize: '1.1rem',
-            backgroundColor: '#333',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          <FaGithub style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> GitHub
-        </button>
+          <h2>Or sign in with</h2>
+          <button
+            onClick={() =>
+              signIn("github", { callbackUrl: "/statistics" })
+            }
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "10rem",
+              height: "3rem",
+              fontSize: "1.1rem",
+              backgroundColor: "#333",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            <FaGithub style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> GitHub
+          </button>
 
-        <button
-          onClick={() => signIn("google")}
-          style={{
-            margin: "0.5rem",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: '10rem',
-            height: '3rem',
-            fontSize: '1.1rem',
-            backgroundColor: '#DB4437',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          <FaGoogle style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> Google
-        </button>
+          <button
+            onClick={() =>
+              signIn("google", { callbackUrl: "/statistics" })
+            }
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "10rem",
+              height: "3rem",
+              fontSize: "1.1rem",
+              backgroundColor: "#DB4437",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            <FaGoogle style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> Google
+          </button>
 
-        <button
-          onClick={() => signIn("facebook")}
-          style={{
-            margin: "0.5rem",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: '10rem',
-            height: '3rem',
-            fontSize: '1.1rem',
-            backgroundColor: '#3b5998',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          <FaFacebook style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> Facebook
-        </button>
-      </div>
+          <button
+            onClick={() =>
+              signIn("facebook", { callbackUrl: "/statistics" })
+            }
+            style={{
+              margin: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "10rem",
+              height: "3rem",
+              fontSize: "1.1rem",
+              backgroundColor: "#3b5998",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            <FaFacebook style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} /> Facebook
+          </button>
+        </div>
       </main>
 
       <footer>&copy; All the copy rights are for Qatar University 2025</footer>

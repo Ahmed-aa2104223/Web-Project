@@ -4,6 +4,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -15,17 +18,16 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch("http://localhost:5000/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: credentials.email,
-            password: credentials.password,
-          }),
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+        
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
         });
-        const data = await res.json();
-        if (res.ok && data.success) {
-          return { id: data.user.id, email: data.user.email };
+        
+        if (user && user.password === credentials.password) {
+          return { id: user.id, email: user.email };
         }
         return null;
       },
@@ -41,6 +43,11 @@ export const authOptions = {
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
+      authorization: {
+        params: {
+          scope: "public_profile"
+        }
+      }
     }),
   ],
   session: { strategy: "jwt" },
